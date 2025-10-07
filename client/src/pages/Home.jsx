@@ -1,45 +1,48 @@
 import { Link } from 'react-router-dom'
-import toast from 'react-hot-toast'
 import { useAppContext } from '../context/AppContext'
 
 function Home() {
-  const { user, loading } = useAppContext()
+  const { user } = useAppContext()
   
-  const handleClick = () => {
-    toast.success('Welcome to the collaborative project!')
-  }
-
-  const handleContextTest = () => {
-    toast.success(`AppContext is working! User: ${user ? user.name : 'Not logged in'}`)
-  }
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 font-outfit">
-        Fresh Fruit Web
-      </h1>
-      <p className="text-center text-lg mb-8 font-source-serif text-gray-600">
-        A modern collaborative project with React & Context API
-      </p>
-      <div className="text-center space-x-4">
-        <button
-          onClick={handleClick}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded font-outfit"
-        >
-          Test Toast
-        </button>
-        <button
-          onClick={handleContextTest}
-          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded font-outfit"
-        >
-          Test Context
-        </button>
-        <Link
-          to="/about"
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded font-outfit inline-block"
-        >
-          About
-        </Link>
+    <div className="container mx-auto px-4 py-16">
+      <div className="text-center">
+        <h1 className="text-5xl font-bold mb-4 text-gray-800 font-outfit">
+          GreenCart
+        </h1>
+        <p className="text-xl mb-8 font-source-serif text-gray-600 max-w-2xl mx-auto">
+          Fresh fruits and groceries delivered to your doorstep
+        </p>
+        
+        {user && (
+          <p className="text-lg mb-6 text-green-600 font-medium">
+            Hello, {user.name}! Welcome back.
+          </p>
+        )}
+        
+        <div className="space-x-4">
+          <Link
+            to="/about"
+            className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg font-outfit inline-block transition-colors"
+          >
+            Learn More
+          </Link>
+        </div>
+      </div>
+      
+      <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">Modern Design</h3>
+          <p className="text-gray-600">Clean and responsive interface built with Tailwind CSS</p>
+        </div>
+        <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">React Powered</h3>
+          <p className="text-gray-600">Built with React 19 and modern development practices</p>
+        </div>
+        <div className="text-center p-6 bg-white rounded-lg shadow-sm border">
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">Context API</h3>
+          <p className="text-gray-600">State management with React Context for seamless data flow</p>
+        </div>
       </div>
     </div>
   )

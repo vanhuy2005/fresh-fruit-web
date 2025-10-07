@@ -5,35 +5,45 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
+  const [user, setUser] = useState({ 
+    name: "John Doe", 
+    email: "john@greencart.com",
+    avatar: null
+  }); //(true)
+  const [isSeller, setIsSeller] = useState(false);
+  const [showUserLogin, setShowUserLogin] = useState(false);
+  const [cartItems, setCartItems] = useState([1, 2, 3]); // Demo cart items
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Auth functions
-  const login = (userData, userToken) => {
-    setUser(userData);
-    setToken(userToken);
-    localStorage.setItem('token', userToken);
-    navigate('/');
+  // Login function
+  const login = () => {
+    setUser({ 
+      name: "John Doe", 
+      email: "john@greencart.com",
+      avatar: null
+    });
+    setShowUserLogin(false);
   };
 
+  // Logout function
   const logout = () => {
     setUser(null);
-    setToken(null);
-    localStorage.removeItem('token');
-    navigate('/');
   };
 
-  const value = {
-    user,
-    setUser,
-    loading,
-    setLoading,
-    token,
-    setToken,
+  const value = { 
+    navigate, 
+    user, 
+    setUser, 
+    setIsSeller, 
+    isSeller,
+    showUserLogin,
+    setShowUserLogin,
+    cartItems,
+    setCartItems,
+    searchQuery,
+    setSearchQuery,
     login,
-    logout,
-    navigate
+    logout
   };
 
   return <AppContext.Provider value={value}>
