@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 import { useAppContext } from '../context/AppContext'
 
 function Home() {
-  const { user } = useAppContext()
+  const { user, loading } = useAppContext()
+  
+  const handleClick = () => {
+    toast.success('Welcome to Fresh Fruit Store!')
+  }
+
+  const handleContextTest = () => {
+    toast.success(`AppContext is working! User: ${user ? user.name : 'Not logged in'}`)
+  }
   
   return (
     <div className="container mx-auto px-4 py-16">
@@ -20,13 +29,19 @@ function Home() {
           </p>
         )}
         
-        <div className="space-x-4">
-          <Link
-            to="/about"
-            className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg font-outfit inline-block transition-colors"
+        <div className="space-x-4 mb-8">
+          <button
+            onClick={handleClick}
+            className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg font-outfit transition-colors"
           >
-            Learn More
-          </Link>
+            Test Toast
+          </button>
+          <button
+            onClick={handleContextTest}
+            className="bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 px-6 rounded-lg font-outfit transition-colors"
+          >
+            Test Context
+          </button>
         </div>
       </div>
       

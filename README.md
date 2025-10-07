@@ -4,6 +4,7 @@
 A full-stack e-commerce web application for fresh fruits and vegetables.
 
 ## 🛠️ Tech Stack
+
 ### Frontend:
 - React 19.0.0
 - React Router DOM 7.6.0
@@ -19,6 +20,7 @@ A full-stack e-commerce web application for fresh fruits and vegetables.
 - Multer for file uploads
 
 ## 📦 Installation & Setup
+
 ### Prerequisites
 - Node.js (v18 or higher)
 - MongoDB
