@@ -53,4 +53,4 @@ npm run dev
 This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
-Nhom_7
+Nhóm 7
