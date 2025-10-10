@@ -6,7 +6,7 @@ import { assets } from '../assets/assets'
 const NavBar = () => {
     const [open, setOpen] = useState(false)
     const [showDropdown, setShowDropdown] = useState(false)
-    const { user, cart, searchQuery, setSearchQuery, login, logout } = useContext(AppContext)
+    const { user, getCartCount, searchQuery, setSearchQuery, logout } = useContext(AppContext)
     const navigate = useNavigate()
     const dropdownRef = useRef(null)
 
@@ -28,73 +28,76 @@ const NavBar = () => {
     }
 
     return (
-        <nav className="font-outfit flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-3.5 border-b border-gray-200/80 bg-white/96 backdrop-blur-sm sticky top-0 z-50 transition-all duration-300 shadow-sm hover:shadow-md">
+        <nav className="font-outfit flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-3 border-b border-gray-200/80 bg-white/96 backdrop-blur-sm sticky top-0 z-50 transition-all duration-300 shadow-sm hover:shadow-md">
             {/* Logo */}
             <NavLink to="/" onClick={() => setOpen(false)} className="group">
                 <img 
-                    src={assets.logo} 
-                    alt="GreenCart" 
-                    className="w-32 transition-transform duration-300 group-hover:scale-105" 
+                    src={assets.logoFruitHub3D} 
+                    alt="FruitHub" 
+                    className="h-14 w-auto max-w-40 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-sm" 
                 />
             </NavLink>
 
             {/* Desktop Menu */}
-            <div className="hidden sm:flex items-center gap-6">
+            <div className="hidden sm:flex items-center gap-5">
                 <NavLink 
                     to="/" 
-                    className={({ isActive }) => 
-                        `relative font-medium transition-all duration-500 px-5 py-3 rounded-xl group tracking-tight overflow-hidden ${
-                            isActive 
-                                ? "text-green-700 bg-gradient-to-r from-green-50 to-emerald-50 shadow-lg shadow-green-100/50 border border-green-100" 
-                                : "text-gray-700 hover:text-green-700 hover:shadow-lg hover:shadow-gray-100/50 hover:-translate-y-0.5 transform"
-                        }`
-                    }
+                    className="relative font-medium transition-all duration-300 px-4 py-3 group tracking-tight text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span className="relative z-10 flex items-center gap-2">
-                        <svg className="w-4 h-4 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                        Home
-                    </span>
+                    {({ isActive }) => (
+                        <>
+                            <span className={`relative z-10 flex items-center gap-2 ${isActive ? 'text-green-700 font-bold' : ''}`}>
+                                <svg className="w-4 h-4 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Home
+                            </span>
+                            {/* Bottom line indicator */}
+                            <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 transition-all duration-300 ${
+                                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                            }`}></div>
+                        </>
+                    )}
                 </NavLink>
                 
                 <NavLink 
                     to="/products" 
-                    className={({ isActive }) => 
-                        `relative font-medium transition-all duration-500 px-5 py-3 rounded-xl group tracking-tight overflow-hidden ${
-                            isActive 
-                                ? "text-green-700 bg-gradient-to-r from-green-50 to-emerald-50 shadow-lg shadow-green-100/50 border border-green-100" 
-                                : "text-gray-700 hover:text-green-700 hover:shadow-lg hover:shadow-gray-100/50 hover:-translate-y-0.5 transform"
-                        }`
-                    }
+                    className="relative font-medium transition-all duration-300 px-4 py-3 group tracking-tight text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span className="relative z-10 flex items-center gap-2">
-                        <svg className="w-4 h-4 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                        All Products
-                    </span>
+                    {({ isActive }) => (
+                        <>
+                            <span className={`relative z-10 flex items-center gap-2 ${isActive ? 'text-green-700 font-bold' : ''}`}>
+                                <svg className="w-4 h-4 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                </svg>
+                                All Products
+                            </span>
+                            {/* Bottom line indicator */}
+                            <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 transition-all duration-300 ${
+                                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                            }`}></div>
+                        </>
+                    )}
                 </NavLink>
                 
                 <NavLink 
                     to="/about" 
-                    className={({ isActive }) => 
-                        `relative font-medium transition-all duration-500 px-5 py-3 rounded-xl group tracking-tight overflow-hidden ${
-                            isActive 
-                                ? "text-green-700 bg-gradient-to-r from-green-50 to-emerald-50 shadow-lg shadow-green-100/50 border border-green-100" 
-                                : "text-gray-700 hover:text-green-700 hover:shadow-lg hover:shadow-gray-100/50 hover:-translate-y-0.5 transform"
-                        }`
-                    }
+                    className="relative font-medium transition-all duration-300 px-4 py-3 group tracking-tight text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50"
                 >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <span className="relative z-10 flex items-center gap-2">
-                        <svg className="w-4 h-4 transition-all duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        About
-                    </span>
+                    {({ isActive }) => (
+                        <>
+                            <span className={`relative z-10 flex items-center gap-2 ${isActive ? 'text-green-700 font-bold' : ''}`}>
+                                <svg className="w-4 h-4 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                About
+                            </span>
+                            {/* Bottom line indicator */}
+                            <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-green-600 transition-all duration-300 ${
+                                isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                            }`}></div>
+                        </>
+                    )}
                 </NavLink>
 
                 {/* Search */}
@@ -115,9 +118,9 @@ const NavBar = () => {
                 <div className="relative cursor-pointer group" onClick={() => navigate('/cart')}>
                     <div className="p-2 rounded-full hover:bg-gray-50 transition-all duration-300 hover:scale-110">
                         <img src={assets.nav_cart_icon} alt="cart" className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                        {cart && cart.length > 0 && (
+                        {getCartCount() > 0 && (
                             <div className="absolute -top-1 -right-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center shadow-lg animate-pulse font-semibold">
-                                {cart.length}
+                                {getCartCount()}
                             </div>
                         )}
                     </div>
@@ -259,10 +262,10 @@ const NavBar = () => {
                     ) : (
                         <button 
                             onClick={() => {
-                                login()
+                                navigate('/login')
                                 setOpen(false)
                             }}
-                            className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-8 py-3 rounded-full font-semibold tracking-tight transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1 transform group border border-green-400/20"
+                            className="relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-6 py-2.5 rounded-full font-semibold tracking-tight transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/25 hover:-translate-y-1 transform group border border-green-400/20"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -288,7 +291,7 @@ const NavBar = () => {
 
             {/* Mobile Menu */}
             {open && (
-                <div className="absolute top-[70px] left-0 right-0 bg-white/98 backdrop-blur-md shadow-2xl border-t border-gray-100 flex flex-col md:hidden z-40">
+                <div className="absolute top-[70px] left-0 right-0 bg-white/98 backdrop-blur-md shadow-2xl border-t border-gray-100 md:hidden z-40 max-h-[calc(100vh-70px)] overflow-y-auto">
                     {/* Navigation Section */}
                     <div className="px-6 py-4 border-b border-gray-100">
                         <div className="space-y-2">
@@ -296,19 +299,18 @@ const NavBar = () => {
                                 to="/" 
                                 onClick={() => setOpen(false)} 
                                 className={({ isActive }) => 
-                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-500 transform overflow-hidden group ${
+                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-300 group ${
                                         isActive 
-                                            ? 'bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 shadow-lg shadow-green-100/50 border border-green-100 scale-[1.02]' 
-                                            : 'text-gray-700 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-lg hover:shadow-gray-100/50 hover:scale-[1.02]'
+                                            ? 'text-green-700 font-bold bg-gray-50' 
+                                            : 'text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50'
                                     }`
                                 }
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="flex items-center gap-3 relative z-10">
-                                    <svg className="w-5 h-5 transition-all duration-300 group-hover:scale-110 text-gray-500 group-hover:text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                     </svg>
-                                    <span className="font-semibold tracking-tight">Home</span>
+                                    <span className="tracking-tight">Home</span>
                                 </div>
                             </NavLink>
                             
@@ -316,19 +318,18 @@ const NavBar = () => {
                                 to="/products" 
                                 onClick={() => setOpen(false)} 
                                 className={({ isActive }) => 
-                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-500 transform overflow-hidden group ${
+                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-300 group ${
                                         isActive 
-                                            ? 'bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 shadow-lg shadow-green-100/50 border border-green-100 scale-[1.02]' 
-                                            : 'text-gray-700 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-lg hover:shadow-gray-100/50 hover:scale-[1.02]'
+                                            ? 'text-green-700 font-bold bg-gray-50' 
+                                            : 'text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50'
                                     }`
                                 }
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="flex items-center gap-3 relative z-10">
-                                    <svg className="w-5 h-5 transition-all duration-300 group-hover:scale-110 text-gray-500 group-hover:text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                     </svg>
-                                    <span className="font-semibold tracking-tight">All Products</span>
+                                    <span className="tracking-tight">All Products</span>
                                 </div>
                             </NavLink>
                             
@@ -336,19 +337,18 @@ const NavBar = () => {
                                 to="/about" 
                                 onClick={() => setOpen(false)} 
                                 className={({ isActive }) => 
-                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-500 transform overflow-hidden group ${
+                                    `relative block px-5 py-4 rounded-2xl font-medium transition-all duration-300 group ${
                                         isActive 
-                                            ? 'bg-gradient-to-r from-green-50 to-emerald-50 text-green-700 shadow-lg shadow-green-100/50 border border-green-100 scale-[1.02]' 
-                                            : 'text-gray-700 hover:text-green-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:shadow-lg hover:shadow-gray-100/50 hover:scale-[1.02]'
+                                            ? 'text-green-700 font-bold bg-gray-50' 
+                                            : 'text-gray-700 hover:text-green-700 hover:font-bold hover:bg-gray-50'
                                     }`
                                 }
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                 <div className="flex items-center gap-3 relative z-10">
-                                    <svg className="w-5 h-5 transition-all duration-300 group-hover:scale-110 text-gray-500 group-hover:text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-5 h-5 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
-                                    <span className="font-semibold tracking-tight">About</span>
+                                    <span className="tracking-tight">About</span>
                                 </div>
                             </NavLink>
                         </div>
@@ -371,7 +371,7 @@ const NavBar = () => {
                     </div>
 
                     {/* User Section */}
-                    <div className="px-6 py-4">
+                    <div className="px-6 py-4 pb-6">
                         {user ? (
                             <div className="space-y-3">
                                 {/* User Info */}
@@ -465,7 +465,7 @@ const NavBar = () => {
                                     {/* Divider */}
                                     <div className="border-t border-gray-200 my-3"></div>
 
-                                    {/* Logout */}
+                                    {/* Logout - Now Easily Accessible */}
                                     <button 
                                         onClick={() => {
                                             logout()
@@ -484,7 +484,7 @@ const NavBar = () => {
                         ) : (
                             <button 
                                 onClick={() => {
-                                    login()
+                                    navigate('/login')
                                     setOpen(false)
                                 }}
                                 className="w-full relative overflow-hidden bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white px-6 py-4 rounded-full font-semibold tracking-tight transition-all duration-500 hover:shadow-xl hover:shadow-green-500/25 hover:scale-[1.02] transform group border border-green-400/20"
