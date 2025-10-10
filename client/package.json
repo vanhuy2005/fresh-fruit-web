@@ -28,5 +28,10 @@
     "postcss": "^8.4.24",
     "prettier": "^3.0.0",
     "vite": "^6.3.6"
-  }
+  },
+  "main": "tailwind.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
