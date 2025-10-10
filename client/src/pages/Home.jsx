@@ -5,7 +5,6 @@ import Bestseller from '../components/Bestseller'
 import Bottombanner from '../components/Bottombanner'
 import { useAppContext } from '../context/AppContext'
 import Newsletter from '../components/Newsletter'
-import Footer from '../components/Footer'
 
 function Home() {
   const { user } = useAppContext()
@@ -34,9 +33,6 @@ function Home() {
       <div className="-mt-8">
         <Newsletter />
       </div>
-
-      <Footer />
-      
     </div>
   )
 }

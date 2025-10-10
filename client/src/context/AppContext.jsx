@@ -81,6 +81,19 @@ export const AppContextProvider = ({ children }) => {
     setCartItems({});
   };
 
+  // Format Currency
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('vi-VN', {
+      style: 'currency',
+      currency: 'VND'
+    }).format(amount);
+  };
+
+  // Format Price with thousand separator (simple version for display)
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   // Login function
   const login = (userData, userToken) => {
     if (userData && userToken) {
@@ -124,6 +137,8 @@ export const AppContextProvider = ({ children }) => {
     products,
     setProducts,
     currency,
+    formatCurrency,
+    formatPrice,
     addToCart,
     removeFromCart,
     getCartCount,
