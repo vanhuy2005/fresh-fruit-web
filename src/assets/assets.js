@@ -645,7 +645,7 @@ export const dummyProducts = [
   {
     _id: "bk02b30y",
     name: "Green coconut 1 fruit",
-    category: "fruits",
+    category: "Fruits",
     price: 30000,
     offerPrice: 25000,
     image: [traicaytrongnuoc_duaxiemnon],
