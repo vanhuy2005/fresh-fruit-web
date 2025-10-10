@@ -579,7 +579,7 @@ export const dummyProducts = [
   {
     _id: "ek68j89k",
     name: "Peach 1kg",
-    category: "fruits",
+    category: "Fruits",
     price: 60000,
     offerPrice: 55000,
     image: [traicay_peach],
