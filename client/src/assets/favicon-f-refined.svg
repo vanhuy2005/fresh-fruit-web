@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <!-- 3D gradient for depth -->
+    <linearGradient id="fGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="30%" style="stop-color:#16a34a"/>
+      <stop offset="70%" style="stop-color:#0f5132"/>
+      <stop offset="100%" style="stop-color:#064e3b"/>
+    </linearGradient>
+    
+    <!-- Bevel gradient for 3D edge effect -->
+    <linearGradient id="bevelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" style="stop-color:#ffffff" stop-opacity="0"/>
+      <stop offset="100%" style="stop-color:#000000" stop-opacity="0.2"/>
+    </linearGradient>
+    
+    <!-- Deep shadow for depth -->
+    <filter id="deepShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/>
+      <feDropShadow dx="1" dy="2" stdDeviation="1" flood-color="#064e3b" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Inner shadow for carved effect -->
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur stdDeviation="1" result="offset-blur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.15"/>
+      <feComposite in2="offset-blur" operator="in"/>
+    </filter>
+  </defs>
+  
+  <!-- Background with depth -->
+  <rect width="32" height="32" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" fill="url(#bevelGradient)" opacity="0.5"/>
+  
+  <!-- 3D F letter with multiple layers for depth -->
+  <g filter="url(#deepShadow)">
+    <!-- Back layer (darker, offset for depth) -->
+    <path d="M9 6 Q9 5 10 5 L23 5 Q24 5 24 6 L24 9 Q24 10 23 10 L14 10 L14 15 L21 15 Q22 15 22 16 L22 19 Q22 20 21 20 L14 20 L14 27 Q14 28 13 28 L10 28 Q9 28 9 27 Z" 
+          fill="#064e3b" 
+          transform="translate(1,1)"
+          rx="1"/>
+    
+    <!-- Main F body with gradient -->
+    <path d="M8 5 Q8 4 9 4 L23 4 Q24 4 24 5 L24 8 Q24 9 23 9 L13 9 L13 14 L21 14 Q22 14 22 15 L22 18 Q22 19 21 19 L13 19 L13 26 Q13 27 12 27 L9 27 Q8 27 8 26 Z" 
+          fill="url(#fGradient)" 
+          rx="1"/>
+    
+    <!-- Top highlight for 3D effect -->
+    <path d="M8 5 Q8 4 9 4 L23 4 Q24 4 24 5 L24 6 Q24 7 23 7 L9 7 Q8 7 8 6 Z" 
+          fill="url(#bevelGradient)" 
+          rx="1"/>
+    
+    <!-- Side highlight for depth -->
+    <path d="M8 5 Q8 4 9 4 L10 4 Q11 4 11 5 L11 26 Q11 27 10 27 L9 27 Q8 27 8 26 Z" 
+          fill="url(#bevelGradient)" 
+          rx="1"/>
+  </g>
+  
+  <!-- Subtle reflection on background for premium feel -->
+  <ellipse cx="16" cy="28" rx="12" ry="2" fill="#000000" opacity="0.05"/>
+</svg>
