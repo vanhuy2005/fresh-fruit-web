@@ -221,7 +221,7 @@ export const dummyProducts = [
     name: "Raspberry 1 kg",
     category: "Fruits",
     price: 125000,
-    offerPrice: 120000,
+    offerPrice: 115000,
     image: [traicay_phucbontu],
     description: [
       "Fresh and organic",
