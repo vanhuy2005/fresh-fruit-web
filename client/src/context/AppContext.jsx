@@ -1,121 +1,224 @@
-import { createContext, useContext, useState, useEffect } from "react";
+﻿import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyProducts } from "../assets/assets";
 
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-  const navigate = useNavigate();
-  const currency = import.meta.env.VITE_CURRENCY || '₫';
+  const currency = (import.meta.env && import.meta.env.VITE_CURRENCY) || 'đ';
   
-  const [user, setUser] = useState({ 
-    name: "hẹ hẹ hẹ", 
-    email: "abc123@greencart.com",
-    avatar: null
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+  
+  const navigate = useNavigate();
+  // User starts as null (not logged in) - only set after successful login
+  const [user, setUser] = useState(() => {
+    const savedToken = localStorage.getItem('token');
+    if (savedToken) {
+      // If token exists, restore user session
+      return { 
+        name: "hẹ hẹ hẹ", 
+        email: "abc123@greencart.com",
+        avatar: null
+      };
+    }
+    return null;
   });
-  const [isSeller, setIsSeller] = useState(false);
-  const [cartItems, setCartItems] = useState({}); // Changed to object for better cart management
+  const [isSeller, setIsSeller] = useState(() => {
+    return localStorage.getItem('isSeller') === 'true';
+  });
+  const [showUserLogin, setShowUserLogin] = useState(false);
+  const [cartItems, setCartItems] = useState({});
+  const [addresses, setAddresses] = useState(() => {
+    const savedAddresses = localStorage.getItem('addresses');
+    return savedAddresses ? JSON.parse(savedAddresses) : [
+      {
+        id: 1,
+        name: 'Nhà riêng',
+        fullName: 'Nguyễn Văn A',
+        phone: '0123456789',
+        street: '123 Nguyễn Huệ',
+        city: 'Quận 1',
+        state: 'TP.HCM',
+        country: 'Việt Nam',
+        isDefault: true
+      }
+    ];
+  });
+  const [orders, setOrders] = useState(() => {
+    const savedOrders = localStorage.getItem('orders');
+    return savedOrders ? JSON.parse(savedOrders) : [];
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [token, setToken] = useState(localStorage.getItem('token') || null);
   const [products, setProducts] = useState([]);
-
-  // Fetch Products
+  
   const fetchProducts = async () => {
     setProducts(dummyProducts);
-  };
-
+  }
+  
   useEffect(() => {
-    fetchProducts();
+    fetchProducts();  
   }, []);
 
-  // Add Product to Cart
-  const addToCart = (itemId) => {
-    let cartData = structuredClone(cartItems);
-    
-    if (cartData[itemId]) {
-      cartData[itemId] += 1;
-    } else {
-      cartData[itemId] = 1;
+  // Save isSeller to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('isSeller', isSeller);
+  }, [isSeller]);
+
+  // Save addresses to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('addresses', JSON.stringify(addresses));
+  }, [addresses]);
+
+  // Save orders to localStorage whenever it changes - optimized batching
+  useEffect(() => {
+    localStorage.setItem('orders', JSON.stringify(orders));
+  }, [orders]);
+
+  const addToCart = (productId, quantity = 1) => {
+    // Check if user is logged in
+    if (!user) {
+      return { success: false, needLogin: true };
     }
     
-    setCartItems(cartData);
+    setCartItems(prev => {
+      const newCart = { ...prev };
+      if (newCart[productId]) {
+        newCart[productId] += quantity;
+      } else {
+        newCart[productId] = quantity;
+      }
+      return newCart;
+    });
+    
+    return { success: true, needLogin: false };
   };
 
-  // Remove Product from Cart
-  const removeFromCart = (itemId) => {
-    let cartData = structuredClone(cartItems);
-    
-    if (cartData[itemId] > 1) {
-      cartData[itemId] -= 1;
+  const removeFromCart = (productId) => {
+    setCartItems(prev => {
+      const newCart = { ...prev };
+      delete newCart[productId];
+      return newCart;
+    });
+  };
+
+  const updateCartQuantity = (productId, quantity) => {
+    if (quantity <= 0) {
+      removeFromCart(productId);
     } else {
-      delete cartData[itemId];
+      setCartItems(prev => ({
+        ...prev,
+        [productId]: quantity
+      }));
     }
-    
-    setCartItems(cartData);
   };
 
-  // Get Cart Count
   const getCartCount = () => {
-    let totalCount = 0;
-    for (const item in cartItems) {
-      totalCount += cartItems[item];
-    }
-    return totalCount;
+    return Object.values(cartItems).reduce((total, qty) => total + qty, 0);
   };
 
-  // Get Cart Amount
-  const getCartAmount = () => {
-    let totalAmount = 0;
-    for (const item in cartItems) {
-      const product = products.find(product => product._id === item);
+  const getCartTotal = () => {
+    let total = 0;
+    for (const productId in cartItems) {
+      const product = products.find(p => p._id === productId);
       if (product) {
-        totalAmount += (product.offerPrice || product.price) * cartItems[item];
+        total += product.offerPrice * cartItems[productId];
       }
     }
-    return totalAmount;
+    return total;
   };
 
-  // Clear Cart
   const clearCart = () => {
     setCartItems({});
   };
 
-  // Format Currency
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('vi-VN', {
-      style: 'currency',
-      currency: 'VND'
-    }).format(amount);
+  const placeOrder = (orderData) => {
+    const newOrder = {
+      id: `ORD${Date.now()}`,
+      date: new Date().toISOString(),
+      status: 'Processing',
+      cancelReason: null,
+      cancelledBy: null,
+      cancelledAt: null,
+      ...orderData,
+    };
+    
+    const updatedOrders = [newOrder, ...orders];
+    setOrders(updatedOrders);
+    // localStorage save handled by useEffect
+    clearCart();
+    
+    return newOrder;
   };
 
-  // Format Price with thousand separator (simple version for display)
-  const formatPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const cancelOrder = (orderId, reason, cancelledBy = 'customer') => {
+    const updatedOrders = orders.map(order => 
+      order.id === orderId 
+        ? { 
+            ...order, 
+            status: 'Cancelled', 
+            cancelReason: reason,
+            cancelledBy: cancelledBy,
+            cancelledAt: new Date().toISOString()
+          }
+        : order
+    );
+    setOrders(updatedOrders);
+    // localStorage save handled by useEffect
   };
 
-  // Login function
+  const rejectOrder = (orderId, reason) => {
+    const updatedOrders = orders.map(order => 
+      order.id === orderId 
+        ? { 
+            ...order, 
+            status: 'Rejected', 
+            cancelReason: reason,
+            cancelledBy: 'seller',
+            cancelledAt: new Date().toISOString()
+          }
+        : order
+    );
+    setOrders(updatedOrders);
+    // localStorage save handled by useEffect
+  };
+
+  const deleteOrder = (orderId) => {
+    const updatedOrders = orders.filter(order => order.id !== orderId);
+    setOrders(updatedOrders);
+    // localStorage save handled by useEffect
+  };
+
+  const getOrders = () => {
+    return orders;
+  };
+
   const login = (userData, userToken) => {
     if (userData && userToken) {
       setUser(userData);
       setToken(userToken);
       localStorage.setItem('token', userToken);
     } else {
-      // Demo login
       setUser({ 
         name: "hẹ hẹ hẹ", 
         email: "abc123@greencart.com",
         avatar: null
       });
     }
+    setShowUserLogin(false);
   };
 
-  // Logout function
   const logout = () => {
     setUser(null);
     setToken(null);
     localStorage.removeItem('token');
-    clearCart();
+  };
+
+  const getDefaultAddress = () => {
+    return addresses.find(addr => addr.isDefault) || addresses[0] || null;
   };
 
   const value = { 
@@ -124,8 +227,16 @@ export const AppContextProvider = ({ children }) => {
     setUser, 
     setIsSeller, 
     isSeller,
+    showUserLogin,
+    setShowUserLogin,
     cartItems,
     setCartItems,
+    addToCart,
+    removeFromCart,
+    updateCartQuantity,
+    getCartCount,
+    getCartTotal,
+    clearCart,
     searchQuery,
     setSearchQuery,
     loading,
@@ -135,16 +246,18 @@ export const AppContextProvider = ({ children }) => {
     login,
     logout,
     products,
-    setProducts,
     currency,
-    formatCurrency,
     formatPrice,
-    addToCart,
-    removeFromCart,
-    getCartCount,
-    getCartAmount,
-    clearCart,
-    cart: cartItems // Alias for compatibility
+    cart: cartItems,
+    orders,
+    placeOrder,
+    getOrders,
+    cancelOrder,
+    rejectOrder,
+    deleteOrder,
+    addresses,
+    setAddresses,
+    getDefaultAddress
   };
 
   return <AppContext.Provider value={value}>

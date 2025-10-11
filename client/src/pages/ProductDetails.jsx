@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 
 const ProductDetails = () => {
 
-    const {products = [], navigate, currency = '₫', addToCart, cartItems} = useAppContext();
+    const {products = [], navigate, currency = '₫', addToCart, cartItems, user} = useAppContext();
      const {id} = useParams();
      const [relatedProducts, setRelatedProducts] = useState([]);
      const [displayCount, setDisplayCount] = useState(5);
@@ -43,8 +43,34 @@ const ProductDetails = () => {
 
      // Add to cart handler
      const handleAddToCart = () => {
-        addToCart(product._id)
-        toast.success("Added to cart!", {
+        if (!user) {
+            toast.error("Vui lòng đăng nhập để thêm vào giỏ hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
+        const result = addToCart(product._id)
+        if (result.needLogin) {
+            toast.error("Vui lòng đăng nhập để mua hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
+        toast.success("Đã thêm vào giỏ hàng!", {
             duration: 2000,
             style: {
                 background: '#10b981',
@@ -56,7 +82,33 @@ const ProductDetails = () => {
 
      // Buy now handler
      const handleBuyNow = () => {
-        addToCart(product._id)
+        if (!user) {
+            toast.error("Vui lòng đăng nhập để mua hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
+        const result = addToCart(product._id)
+        if (result.needLogin) {
+            toast.error("Vui lòng đăng nhập để mua hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
         navigate('/cart')
         window.scrollTo(0, 0)
      }

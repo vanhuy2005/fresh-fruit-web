@@ -15,3 +15,4 @@ yarn-error.log*
 uploads/*
 !uploads/.gitkeep
 .vscode/
+.qodo/

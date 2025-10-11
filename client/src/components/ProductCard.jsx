@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 
 const ProductCard = ({product}) => {
-    const {currency, cartItems, addToCart, removeFromCart, formatPrice} = useAppContext();
+    const {currency, cartItems, addToCart, removeFromCart, formatPrice, user} = useAppContext();
     const navigate = useNavigate();
 
     // Get cart item count
@@ -18,8 +18,35 @@ const ProductCard = ({product}) => {
     // Add product to cart
     const handleAddToCart = (e, productId) => {
         e.stopPropagation()
-        addToCart(productId)
-        toast.success("Added to cart!", {
+        
+        if (!user) {
+            toast.error("Vui lòng đăng nhập để thêm vào giỏ hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
+        const result = addToCart(productId)
+        if (result.needLogin) {
+            toast.error("Vui lòng đăng nhập để mua hàng!", {
+                duration: 2500,
+                style: {
+                    background: '#ef4444',
+                    color: '#fff',
+                    fontWeight: '500'
+                }
+            })
+            setTimeout(() => navigate('/login'), 1500)
+            return
+        }
+        
+        toast.success("Đã thêm vào giỏ hàng!", {
             duration: 2000,
             style: {
                 background: '#10b981',
