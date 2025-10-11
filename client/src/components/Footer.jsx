@@ -153,7 +153,7 @@ const Footer = () => {
             <div className="py-8 border-t border-gray-200">
                 <div className="flex flex-col items-center justify-center gap-4 text-center">
                     <div className="flex flex-col md:flex-row items-center gap-6 text-gray-600">
-                        <span className="font-medium">Copyright {new Date(). getFullYear()} © FruitHub. All rights reserved.</span>
+                        <span className="font-medium">Copyright {new Date().getFullYear()} © FruitHub. All rights reserved.</span>
                         <a href="/privacy" className="hover:text-green-600 transition-colors font-medium">Privacy Policy</a>
                         <a href="/terms" className="hover:text-green-600 transition-colors font-medium">Terms of Service</a>
                     </div>

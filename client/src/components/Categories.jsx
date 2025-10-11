@@ -1,64 +1,12 @@
 import React from 'react'
 import { useAppContext } from '../context/AppContext'
-import organic_vegitable_image from '../assets/organic_vegitable_image.png'
-import fresh_fruits_image from '../assets/fresh_fruits_image.png'
-import bottles_image from '../assets/bottles_image.png'
-import maggi_image from '../assets/maggi_image.png'
-import dairy_product_image from '../assets/dairy_product_image.png'
-import bakery_image from '../assets/bakery_image.png'
-import grain_image from '../assets/grain_image.png'
+import { categories } from '../assets/assets'
 
 const Categories = () => {
   const { navigate } = useAppContext()
 
-  // Categories dựa trên sản phẩm thực tế trong assets
-  const categories = [
-    {
-      text: "Fresh Vegetables",
-      path: "Vegetables", 
-      image: organic_vegitable_image,
-      bgColor: "#FEF6DA",
-    },
-    {
-      text: "Fresh Fruits",
-      path: "Fruits",
-      image: fresh_fruits_image, 
-      bgColor: "#FEE0E0",
-    },
-    {
-      text: "Beverages",
-      path: "Drinks",
-      image: bottles_image,
-      bgColor: "#F0F5DE", 
-    },
-    {
-      text: "Instant Food",
-      path: "Instant",
-      image: maggi_image,
-      bgColor: "#E1F5EC",
-    },
-    {
-      text: "Dairy Products", 
-      path: "Dairy",
-      image: dairy_product_image,
-      bgColor: "#FEE6CD",
-    },
-    {
-      text: "Bakery Items",
-      path: "Bakery", 
-      image: bakery_image,
-      bgColor: "#E0F6FE",
-    },
-    {
-      text: "Grains & Rice",
-      path: "Grains",
-      image: grain_image,
-      bgColor: "#F1E3F9",
-    },
-  ]
-
   return (
-    <div className='py-12 px-6 md:px-16 lg:px-24 xl:px-32'>
+    <div className='py-16 px-6 md:px-16 lg:px-24 xl:px-32 bg-gradient-to-br from-green-50/40 via-white to-emerald-50/30'>
       {/* Section Header */}
       <div className='text-center mb-12'>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight'>
@@ -70,28 +18,45 @@ const Categories = () => {
         </p>
       </div>
 
-      {/* Categories Grid */}
-      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-6 max-w-7xl mx-auto'>
-        {categories.map((category, index) => {
-          return (
-            <div 
-              key={index} 
-              className='group cursor-pointer py-5 px-3 gap-2 rounded-lg flex flex-col justify-center items-center transition-all duration-300 hover:scale-105 hover:shadow-lg'
-              style={{backgroundColor: category.bgColor}}
-              onClick={() => {
-                navigate(`/products/${category.path.toLowerCase()}`)
-                scrollTo(0, 0)
-              }}
-            >
-              <img 
-                src={category.image} 
-                alt={category.text}
-                className='group-hover:scale-108 transition max-w-28'
-              />
-              <p className='text-sm font-medium text-center'>{category.text}</p>
-            </div>
-          )
-        })}
+      {/* Categories Grid - 5 items in one row */}
+      <div className='max-w-7xl mx-auto'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5'>
+          {categories.map((category, index) => {
+            return (
+              <div 
+                key={index}
+                className='group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 bg-white shadow-md hover:shadow-xl'
+                onClick={() => {
+                  navigate(`/products/${category.path.toLowerCase()}`)
+                  scrollTo(0, 0)
+                }}
+              >
+                {/* Image Container - Clean design without icon */}
+                <div className='relative h-48 overflow-hidden bg-gradient-to-br from-white to-gray-50'>
+                  <img 
+                    src={category.image} 
+                    alt={category.text}
+                    className='w-full h-full object-contain transition-transform duration-500 group-hover:scale-110'
+                    style={{ transform: `scale(${category.scale || 1})` }}
+                  />
+                </div>
+
+                {/* Thin Green Line */}
+                <div className='h-0.5 bg-gradient-to-r from-green-400 via-emerald-400 to-green-400'></div>
+
+                {/* Text Content - More padding */}
+                <div className='p-5 text-center bg-white'>
+                  <h3 className='text-base font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors duration-300 leading-tight'>
+                    {category.text}
+                  </h3>
+                  <p className='text-xs text-gray-500 leading-relaxed line-clamp-2'>
+                    {category.description}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )

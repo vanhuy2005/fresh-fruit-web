@@ -24,6 +24,7 @@ const NavBar = () => {
         e.preventDefault()
         if (searchQuery.trim()) {
             navigate('/products')
+            // Keep search query to show results
         }
     }
 
@@ -101,7 +102,7 @@ const NavBar = () => {
                 </NavLink>
 
                 {/* Search */}
-                <form onSubmit={handleSearch} className="hidden lg:flex items-center gap-3 border border-gray-200/80 px-4 py-2.5 rounded-full bg-gray-50/60 hover:bg-white hover:border-gray-300 hover:shadow-md transition-all duration-300 focus-within:border-green-300 focus-within:bg-white focus-within:shadow-lg group">
+                <form onSubmit={handleSearch} className="hidden lg:flex items-center gap-2 border border-gray-200/80 px-4 py-2.5 rounded-full bg-gray-50/60 hover:bg-white hover:border-gray-300 hover:shadow-md transition-all duration-300 focus-within:border-green-300 focus-within:bg-white focus-within:shadow-lg group">
                     <svg className="w-4 h-4 text-gray-400 group-focus-within:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
@@ -112,6 +113,21 @@ const NavBar = () => {
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="outline-none bg-transparent placeholder-gray-400 flex-1 min-w-[200px] font-medium"
                     />
+                    {searchQuery && (
+                        <button
+                            type="button"
+                            onClick={(e) => {
+                                e.preventDefault()
+                                setSearchQuery('')
+                            }}
+                            className="text-gray-400 hover:text-red-500 transition-colors p-1 hover:bg-red-50 rounded-full"
+                            title="Clear search"
+                        >
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    )}
                 </form>
 
                 {/* Cart */}
@@ -193,20 +209,6 @@ const NavBar = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                             </svg>
                                             <span className="text-sm tracking-tight">My Orders</span>
-                                        </button>
-
-                                        {/* Wishlist */}
-                                        <button 
-                                            onClick={() => {
-                                                navigate('/wishlist')
-                                                setShowDropdown(false)
-                                            }}
-                                            className="w-full flex items-center gap-3 px-4 py-2.5 text-left text-gray-700 hover:bg-gray-50 hover:text-gray-900 font-medium transition-all duration-200 group"
-                                        >
-                                            <svg className="w-4 h-4 text-gray-500 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg>
-                                            <span className="text-sm tracking-tight">Wishlist</span>
                                         </button>
 
                                         {/* Settings */}
@@ -356,7 +358,7 @@ const NavBar = () => {
 
                     {/* Search Section */}
                     <div className="px-6 py-4 border-b border-gray-100 lg:hidden">
-                        <form onSubmit={handleSearch} className="flex items-center gap-3 border border-gray-200 px-4 py-3 rounded-xl bg-gray-50 hover:bg-white hover:border-gray-300 transition-all duration-300 focus-within:border-green-300 focus-within:bg-white group">
+                        <form onSubmit={handleSearch} className="flex items-center gap-2 border border-gray-200 px-4 py-3 rounded-xl bg-gray-50 hover:bg-white hover:border-gray-300 transition-all duration-300 focus-within:border-green-300 focus-within:bg-white group">
                             <svg className="w-5 h-5 text-gray-400 group-focus-within:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -367,6 +369,21 @@ const NavBar = () => {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="outline-none bg-transparent placeholder-gray-400 flex-1 font-medium tracking-tight"
                             />
+                            {searchQuery && (
+                                <button
+                                    type="button"
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        setSearchQuery('')
+                                    }}
+                                    className="text-gray-400 hover:text-red-500 transition-colors p-1 hover:bg-red-50 rounded-full"
+                                    title="Clear search"
+                                >
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            )}
                         </form>
                     </div>
 
@@ -417,20 +434,6 @@ const NavBar = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                         </svg>
                                         <span>My Orders</span>
-                                    </button>
-
-                                    {/* Wishlist */}
-                                    <button 
-                                        onClick={() => {
-                                            navigate('/wishlist')
-                                            setOpen(false)
-                                        }}
-                                        className="w-full flex items-center gap-3 px-4 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-gray-900 rounded-xl font-medium transition-all duration-300 group"
-                                    >
-                                        <svg className="w-5 h-5 text-gray-500 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                        </svg>
-                                        <span>Wishlist</span>
                                     </button>
 
                                     {/* Settings */}
