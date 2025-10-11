@@ -1,69 +1,119 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import { assets } from '../assets/assets'
 
 const Profile = () => {
     const navigate = useNavigate()
-    const { user, logout } = useContext(AppContext)
+    const { user, logout, orders } = useContext(AppContext)
     const [activeTab, setActiveTab] = useState('overview')
 
-    // Demo data
-    const userStats = [
-        { label: 'Tổng đơn hàng', value: '24', emoji: '📦', color: 'from-blue-500 to-cyan-500' },
-        { label: 'Đang giao', value: '2', emoji: '🚚', color: 'from-green-500 to-emerald-500' },
-        { label: 'Hoàn thành', value: '22', emoji: '✅', color: 'from-purple-500 to-pink-500' },
-        { label: 'Điểm thưởng', value: '850', emoji: '⭐', color: 'from-orange-500 to-yellow-500' }
-    ]
-
-    const recentOrders = [
-        {
-            id: '#DH2024001',
-            date: '15/12/2024',
-            items: 'Táo Fuji, Cam Sành, Xoài Cát',
-            total: '245.000 ₫',
-            status: 'Đang giao',
-            statusColor: 'bg-green-100 text-green-700'
-        },
-        {
-            id: '#DH2024002',
-            date: '10/12/2024',
-            items: 'Nho Mỹ, Bơ Booth, Dâu Tây',
-            total: '380.000 ₫',
-            status: 'Hoàn thành',
-            statusColor: 'bg-blue-100 text-blue-700'
-        },
-        {
-            id: '#DH2024003',
-            date: '05/12/2024',
-            items: 'Cam Cara, Bưởi Da Xanh',
-            total: '156.000 ₫',
-            status: 'Hoàn thành',
-            statusColor: 'bg-blue-100 text-blue-700'
+    // Calculate real stats from orders - Memoized để tránh recalculate mỗi render
+    const orderStats = useMemo(() => {
+        const totalOrders = orders.length
+        const processingOrders = orders.filter(o => o.status === 'Processing').length
+        const completedOrders = orders.filter(o => o.status === 'Completed').length
+        const cancelledOrders = orders.filter(o => o.status === 'Cancelled').length
+        const rejectedOrders = orders.filter(o => o.status === 'Rejected').length
+        const totalPoints = completedOrders * 50 // 50 points per completed order
+        
+        return {
+            totalOrders,
+            processingOrders,
+            completedOrders,
+            cancelledOrders,
+            rejectedOrders,
+            totalPoints
         }
+    }, [orders])
+
+    const { totalOrders, processingOrders, completedOrders, cancelledOrders, rejectedOrders, totalPoints } = orderStats
+
+    // Stats data with real values
+    const userStats = [
+        { label: 'Tổng đơn hàng', value: totalOrders.toString(), emoji: '📦', color: 'from-blue-500 to-cyan-500' },
+        { label: 'Đang xử lý', value: processingOrders.toString(), emoji: '🚚', color: 'from-green-500 to-emerald-500' },
+        { label: 'Hoàn thành', value: completedOrders.toString(), emoji: '✅', color: 'from-purple-500 to-pink-500' },
+        { label: 'Đã hủy/Từ chối', value: (cancelledOrders + rejectedOrders).toString(), emoji: '❌', color: 'from-red-500 to-orange-500' }
     ]
 
-    const recentActivities = [
-        { icon: '🛒', text: 'Đã đặt đơn hàng #DH2024001', time: '2 giờ trước', color: 'bg-green-50' },
-        { icon: '⭐', text: 'Đã đánh giá sản phẩm Táo Fuji', time: '1 ngày trước', color: 'bg-yellow-50' },
-        { icon: '🎁', text: 'Nhận được 50 điểm thưởng', time: '2 ngày trước', color: 'bg-purple-50' },
-        { icon: '✅', text: 'Đơn hàng #DH2024002 đã giao thành công', time: '3 ngày trước', color: 'bg-blue-50' }
-    ]
+    // Get recent orders (latest 5) - Memoized
+    const recentOrders = useMemo(() => {
+        return orders.slice(0, 5).map(order => ({
+            id: order.id,
+            date: new Date(order.date).toLocaleDateString('vi-VN'),
+            items: order.products.map(p => p.name).join(', '),
+            total: `${order.totalAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}đ`,
+            status: order.status === 'Processing' ? 'Đang xử lý' 
+                  : order.status === 'Completed' ? 'Hoàn thành'
+                  : order.status === 'Cancelled' ? 'Đã hủy'
+                  : order.status === 'Rejected' ? 'Từ chối'
+                  : order.status,
+            statusColor: order.status === 'Processing' ? 'bg-blue-100 text-blue-700'
+                       : order.status === 'Completed' ? 'bg-green-100 text-green-700'
+                       : order.status === 'Cancelled' ? 'bg-red-100 text-red-700'
+                       : order.status === 'Rejected' ? 'bg-orange-100 text-orange-700'
+                       : 'bg-gray-100 text-gray-700'
+        }))
+    }, [orders])
 
-    const achievements = [
-        { emoji: '🌟', title: 'Khách hàng thân thiết', desc: 'Đã mua 20+ đơn', unlocked: true },
-        { emoji: '🎯', title: 'Người mua sắm thông minh', desc: 'Tiết kiệm 500K', unlocked: true },
-        { emoji: '💎', title: 'VIP Member', desc: 'Đạt 1000 điểm', unlocked: false },
-        { emoji: '🏆', title: 'Siêu sao đánh giá', desc: 'Đánh giá 50 sản phẩm', unlocked: false }
-    ]
+    // Get recent activities from orders - Memoized
+    const recentActivities = useMemo(() => {
+        return orders.slice(0, 4).map(order => {
+            if (order.status === 'Processing') {
+                return {
+                    icon: '🛒',
+                    text: `Đã đặt đơn hàng ${order.id}`,
+                    time: new Date(order.date).toLocaleDateString('vi-VN'),
+                    color: 'bg-green-50'
+                }
+            } else if (order.status === 'Completed') {
+                return {
+                    icon: '✅',
+                    text: `Đơn hàng ${order.id} đã giao thành công`,
+                    time: new Date(order.date).toLocaleDateString('vi-VN'),
+                    color: 'bg-blue-50'
+                }
+            } else if (order.status === 'Cancelled') {
+                return {
+                    icon: '❌',
+                    text: `Đã hủy đơn hàng ${order.id}`,
+                    time: new Date(order.cancelledAt || order.date).toLocaleDateString('vi-VN'),
+                    color: 'bg-red-50'
+                }
+            } else if (order.status === 'Rejected') {
+                return {
+                    icon: '⚠️',
+                    text: `Đơn hàng ${order.id} bị từ chối`,
+                    time: new Date(order.cancelledAt || order.date).toLocaleDateString('vi-VN'),
+                    color: 'bg-orange-50'
+                }
+            }
+            return {
+                icon: '📦',
+                text: `Đơn hàng ${order.id}`,
+                time: new Date(order.date).toLocaleDateString('vi-VN'),
+                color: 'bg-gray-50'
+            }
+        })
+    }, [orders])
 
-    const membershipLevel = {
-        current: 'Silver',
-        progress: 65,
-        nextLevel: 'Gold',
-        pointsNeeded: 350,
-        benefits: ['Giảm 10% mọi đơn', 'Freeship từ 100K', 'Ưu tiên hỗ trợ']
-    }
+    // Achievements calculation - Memoized
+    const achievements = useMemo(() => [
+        { emoji: '🌟', title: 'Khách hàng mới', desc: `Đã mua ${totalOrders} đơn`, unlocked: totalOrders >= 1 },
+        { emoji: '🎯', title: 'Người mua sắm thông minh', desc: `${completedOrders} đơn hoàn thành`, unlocked: completedOrders >= 5 },
+        { emoji: '💎', title: 'VIP Member', desc: `Đạt ${totalPoints} điểm`, unlocked: totalPoints >= 1000 },
+        { emoji: '🏆', title: 'Khách hàng thân thiết', desc: 'Mua 20+ đơn', unlocked: totalOrders >= 20 }
+    ], [totalOrders, completedOrders, totalPoints])
+
+    // Membership level calculation - Memoized
+    const membershipLevel = useMemo(() => ({
+        current: totalPoints >= 1000 ? 'Gold' : totalPoints >= 500 ? 'Silver' : 'Bronze',
+        progress: Math.min((totalPoints % 500) / 5, 100),
+        nextLevel: totalPoints >= 1000 ? 'Platinum' : totalPoints >= 500 ? 'Gold' : 'Silver',
+        pointsNeeded: totalPoints >= 1000 ? 1500 - totalPoints : totalPoints >= 500 ? 1000 - totalPoints : 500 - totalPoints,
+        benefits: ['Giảm giá đơn hàng', 'Freeship', 'Ưu tiên hỗ trợ']
+    }), [totalPoints])
 
     if (!user) {
         return (
@@ -235,36 +285,55 @@ const Profile = () => {
                                             Đơn hàng gần đây
                                         </h2>
                                     </div>
-                                    <div className="divide-y">
-                                        {recentOrders.map((order, index) => (
-                                            <div key={index} className="p-6 hover:bg-gray-50 transition-colors">
-                                                <div className="flex justify-between items-start mb-3">
-                                                    <div>
-                                                        <div className="font-bold text-gray-900 mb-1">{order.id}</div>
-                                                        <div className="text-sm text-gray-500">{order.date}</div>
+                                    {recentOrders.length > 0 ? (
+                                        <>
+                                            <div className="divide-y">
+                                                {recentOrders.map((order, index) => (
+                                                    <div key={index} className="p-6 hover:bg-gray-50 transition-colors">
+                                                        <div className="flex justify-between items-start mb-3">
+                                                            <div>
+                                                                <div className="font-bold text-gray-900 mb-1">{order.id}</div>
+                                                                <div className="text-sm text-gray-500">{order.date}</div>
+                                                            </div>
+                                                            <span className={`px-3 py-1 rounded-full text-sm font-medium ${order.statusColor}`}>
+                                                                {order.status}
+                                                            </span>
+                                                        </div>
+                                                        <p className="text-gray-600 mb-2 line-clamp-1">{order.items}</p>
+                                                        <div className="flex justify-between items-center">
+                                                            <span className="text-lg font-bold text-green-600">{order.total}</span>
+                                                            <button 
+                                                                onClick={() => navigate('/orders')}
+                                                                className="text-green-600 hover:text-green-700 font-medium text-sm"
+                                                            >
+                                                                Xem chi tiết →
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${order.statusColor}`}>
-                                                        {order.status}
-                                                    </span>
-                                                </div>
-                                                <p className="text-gray-600 mb-2">{order.items}</p>
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-lg font-bold text-green-600">{order.total}</span>
-                                                    <button className="text-green-600 hover:text-green-700 font-medium text-sm">
-                                                        Xem chi tiết →
-                                                    </button>
-                                                </div>
+                                                ))}
                                             </div>
-                                        ))}
-                                    </div>
-                                    <div className="p-4 bg-gray-50 text-center">
-                                        <button
-                                            onClick={() => navigate('/orders')}
-                                            className="text-green-600 hover:text-green-700 font-semibold"
-                                        >
-                                            Xem tất cả đơn hàng →
-                                        </button>
-                                    </div>
+                                            <div className="p-4 bg-gray-50 text-center">
+                                                <button
+                                                    onClick={() => navigate('/orders')}
+                                                    className="text-green-600 hover:text-green-700 font-semibold"
+                                                >
+                                                    Xem tất cả đơn hàng →
+                                                </button>
+                                            </div>
+                                        </>
+                                    ) : (
+                                        <div className="p-12 text-center">
+                                            <div className="text-5xl mb-4">🛒</div>
+                                            <h3 className="text-lg font-semibold text-gray-800 mb-2">Chưa có đơn hàng</h3>
+                                            <p className="text-gray-500 mb-4">Bắt đầu mua sắm ngay!</p>
+                                            <button
+                                                onClick={() => navigate('/products')}
+                                                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                                            >
+                                                Khám phá sản phẩm
+                                            </button>
+                                        </div>
+                                    )}
                                 </div>
                             </>
                         )}
