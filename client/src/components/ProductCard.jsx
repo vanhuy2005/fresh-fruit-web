@@ -19,7 +19,7 @@ const ProductCard = ({product}) => {
     const handleAddToCart = (e, productId) => {
         e.stopPropagation()
         addToCart(productId)
-        toast.success("Added to cart!", {
+        toast.success("Thêm thành công!", {
             duration: 2000,
             style: {
                 background: '#10b981',
@@ -33,7 +33,7 @@ const ProductCard = ({product}) => {
     const handleRemoveFromCart = (e, productId) => {
         e.stopPropagation()
         removeFromCart(productId)
-        toast.success("Removed from cart!", {
+        toast.success("Xóa thành công!", {
             duration: 2000,
             style: {
                 background: '#10b981',
@@ -107,7 +107,7 @@ const ProductCard = ({product}) => {
                             className="w-full flex items-center justify-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-800 px-2 py-1.5 rounded-md font-medium transition-all duration-200 transform hover:scale-105 shadow-sm hover:shadow-md text-xs border border-gray-200 hover:border-gray-300"
                         >
                             <img src={assets.cart_icon} alt="cart" className="w-3 h-3" />
-                            Add to Cart
+                            Mua hàng
                         </button>
                     ) : (
                         <div className="w-full flex items-center justify-between bg-gray-100 rounded-md p-0.5">

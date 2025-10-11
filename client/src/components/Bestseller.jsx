@@ -17,7 +17,7 @@ const Bestseller = () => {
   // Add product to cart
   const handleAddToCart = (productId) => {
     addToCart(productId)
-    toast.success("Added to cart!", {
+    toast.success("Đã thêm vào giỏ hàng!", {
       duration: 2000,
       style: {
         background: '#10b981',
@@ -30,7 +30,7 @@ const Bestseller = () => {
   // Remove product from cart
   const handleRemoveFromCart = (productId) => {
     removeFromCart(productId)
-    toast.success("Removed from cart!", {
+    toast.success("Đã xóa khỏi giỏ hàng!", {
       duration: 2000,
       style: {
         background: '#10b981',
@@ -45,11 +45,11 @@ const Bestseller = () => {
       {/* Section Header */}
       <div className='text-center mb-8'>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight'>
-          Our 
-          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> Best Sellers</span>
+          Sản Phẩm
+          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> Bán Chạy</span>
         </h2>
         <p className='text-base md:text-lg text-gray-600 max-w-2xl mx-auto'>
-          Top 5 products loved by thousands of customers
+          Top 5 sản phẩm được yêu thích bởi hàng ngàn khách hàng
         </p>
       </div>
 
@@ -131,7 +131,7 @@ const Bestseller = () => {
                         className="w-full flex items-center justify-center gap-1 bg-gray-100 hover:bg-gray-200 text-gray-800 px-2 py-1.5 rounded-md font-medium transition-all duration-200 transform hover:scale-105 shadow-sm hover:shadow-md text-[10px] border border-gray-200 hover:border-gray-300"
                       >
                         <img src={assets.cart_icon} alt="cart" className="w-3 h-3" />
-                        Add to Cart
+                        Thêm vào giỏ
                       </button>
                     ) : (
                       <div className="w-full flex items-center justify-between bg-gray-100 rounded-md p-0.5">

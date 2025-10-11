@@ -40,7 +40,7 @@ const ProductCategory = () => {
                         </h1>
                         <p className='text-gray-600 mt-1'>{searchCategory.description}</p>
                         <p className='text-sm text-gray-500 mt-2'>
-                            {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} available
+                            {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'} còn lại
                         </p>
                     </div>
                 </div>

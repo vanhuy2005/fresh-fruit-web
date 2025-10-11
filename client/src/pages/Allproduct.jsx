@@ -55,20 +55,20 @@ const Allproduct = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight">
                     {searchQuery ? (
                         <>
-                            Search Results for 
+                            Kết Quả Tìm Kiểm Cho 
                             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> "{searchQuery}"</span>
                         </>
                     ) : (
                         <>
-                            All 
-                            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Products</span>
+                            Tất Cả
+                            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent"> Sản Phẩm</span>
                         </>
                     )}
                 </h1>
                 <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     {searchQuery 
-                        ? `Found ${filteredProducts.filter(p => p.inStock).length} ${filteredProducts.filter(p => p.inStock).length === 1 ? 'product' : 'products'} matching your search`
-                        : 'Discover our complete collection of fresh fruits, juices and gift baskets'
+                        ? `Tìm thấy ${filteredProducts.filter(p => p.inStock).length} sản phẩm phù hợp với từ khóa của bạn`
+                        : 'Khám phá bộ sưu tập trái cây tươi, nước ép và giỏ quà đặc sắc của chúng tôi'
                     }
                 </p>
                 
@@ -81,7 +81,7 @@ const Allproduct = () => {
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
-                        Clear Search
+                        Làm Mới Tìm Kiếm
                     </button>
                 )}
             </div>
@@ -98,17 +98,17 @@ const Allproduct = () => {
                     <div className="py-24 text-center">
                         <div className="text-6xl mb-4">🔍</div>
                         <p className="text-2xl font-bold text-gray-800 mb-2">
-                            {searchQuery ? `No products found for "${searchQuery}"` : 'No products available'}
+                            {searchQuery ? `Không tìm thấy sản phẩm nào cho "${searchQuery}"` : 'Hiện chưa có sản phẩm'}
                         </p>
                         <p className="text-gray-600 mb-6">
-                            {searchQuery ? 'Try searching with different keywords' : 'Please check back later'}
+                            {searchQuery ? 'Hãy thử tìm với từ khóa khác' : 'Vui lòng quay lại sau'}
                         </p>
                         {searchQuery && (
                             <button 
                                 onClick={clearSearch}
                                 className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
                             >
-                                Clear Search & View All Products
+                                Làm Mới Tìm Kiếm & Xem Tất Cả Sản Phẩm
                             </button>
                         )}
                     </div>

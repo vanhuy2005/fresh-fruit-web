@@ -137,7 +137,7 @@ const Login = () => {
                 <svg className="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Back to Home
+                Trở Về Trang Chủ
             </Link>
 
             {/* Main Login Container */}
@@ -172,7 +172,7 @@ const Login = () => {
                             <div className="px-8 py-6 space-y-5">{/* Increased px to match larger width */}
                                 {state !== "login" && (
                                     <div className="group">
-                                        <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Full Name</label>
+                                        <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Họ Và Tên</label>
                                         <div className="relative">
                                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                                                 <svg className="w-4 h-4 text-gray-400 group-focus-within:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +193,7 @@ const Login = () => {
                                 )}
                                 
                                 <div className="group">
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Email Address</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Địa Chỉ Email</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                                             <svg className="w-4 h-4 text-gray-400 group-focus-within:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,7 +213,7 @@ const Login = () => {
                                 </div>
                                 
                                 <div className="group">
-                                    <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Password</label>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 text-left">Mật Khẩu</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                                             <svg className="w-4 h-4 text-gray-400 group-focus-within:text-green-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,7 +238,7 @@ const Login = () => {
                                             type="button" 
                                             className="text-sm text-green-600 hover:text-green-700 font-semibold transition-colors hover:underline"
                                         >
-                                            Forgot your password?
+                                            Quên Mật Khẩu?
                                         </button>
                                     </div>
                                 )}

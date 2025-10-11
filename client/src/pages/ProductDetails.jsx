@@ -44,7 +44,7 @@ const ProductDetails = () => {
      // Add to cart handler
      const handleAddToCart = () => {
         addToCart(product._id)
-        toast.success("Added to cart!", {
+        toast.success("Đã thêm vào giỏ hàng!", {
             duration: 2000,
             style: {
                 background: '#10b981',
@@ -57,8 +57,8 @@ const ProductDetails = () => {
      // Buy now handler
      const handleBuyNow = () => {
         addToCart(product._id)
-        navigate('/cart')
-        window.scrollTo(0, 0)
+    navigate('/cart')
+    window.scrollTo(0, 0)
      }
 
      // Load more related products
@@ -74,9 +74,9 @@ const ProductDetails = () => {
         <div className="py-8 px-6 md:px-16 lg:px-24 xl:px-32 bg-gray-50">
             {/* Breadcrumb */}
             <div className="text-sm text-gray-600 mb-6 flex items-center gap-2">
-                <Link to="/" className="hover:text-green-600 transition-colors">Home</Link>
+                <Link to="/" className="hover:text-green-600 transition-colors">Trang chủ</Link>
                 <span>/</span>
-                <Link to="/products" className="hover:text-green-600 transition-colors">Products</Link>
+                <Link to="/products" className="hover:text-green-600 transition-colors">Sản phẩm</Link>
                 <span>/</span>
                 <span className="text-gray-400">{product.category}</span>
                 <span>/</span>
@@ -128,25 +128,25 @@ const ProductDetails = () => {
                                     />
                                 ))}
                             </div>
-                            <span className="text-gray-600 text-sm">(4)</span>
+                            <span className="text-gray-600 text-sm">(4 đánh giá)</span>
                         </div>
 
                         {/* Price Section */}
                         <div className="mb-6">
                             <div className="flex items-baseline gap-2 mb-1">
-                                <span className="text-sm text-gray-500">MRP:</span>
+                                <span className="text-sm text-gray-500">Giá gốc:</span>
                                 <span className="text-gray-400 line-through text-sm">{formatPrice(product.price)} VNĐ</span>
                             </div>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-lg font-medium text-gray-700">MRP:</span>
+                                <span className="text-lg font-medium text-gray-700">Giá ưu đãi:</span>
                                 <span className="text-3xl font-bold text-green-600">{formatPrice(product.offerPrice)} VNĐ</span>
                             </div>
-                            <p className="text-xs text-gray-500 mt-1">(inclusive of all taxes)</p>
+                            <p className="text-xs text-gray-500 mt-1">(Đã bao gồm thuế)</p>
                         </div>
 
                         {/* About Product */}
                         <div className="mb-6">
-                            <h3 className="text-base font-semibold text-gray-800 mb-3">About Product</h3>
+                            <h3 className="text-base font-semibold text-gray-800 mb-3">Thông tin sản phẩm</h3>
                             <ul className="list-disc list-inside text-gray-600 space-y-1.5">
                                 {product.description.map((desc, index) => (
                                     <li key={index} className="text-sm leading-relaxed">{desc}</li>
@@ -161,14 +161,14 @@ const ProductDetails = () => {
                                 onClick={handleAddToCart}
                                 className="flex-1 py-3.5 px-6 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-lg transition-all duration-300 border border-gray-200 hover:border-gray-300"
                             >
-                                Add to Cart
+                                Thêm vào giỏ hàng
                             </button>
                             <button 
                                 type="button" 
                                 onClick={handleBuyNow}
                                 className="flex-1 py-3.5 px-6 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                             >
-                                Buy now
+                                Mua ngay
                             </button>
                         </div>
 
@@ -176,7 +176,7 @@ const ProductDetails = () => {
                         {itemCount > 0 && (
                             <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-lg text-center">
                                 <p className="text-sm text-green-700">
-                                    <span className="font-bold">{itemCount}</span> {itemCount === 1 ? 'item' : 'items'} in cart
+                                    <span className="font-bold">{itemCount}</span> {itemCount === 1 ? 'sản phẩm' : 'sản phẩm'} trong giỏ hàng
                                 </p>
                             </div>
                         )}
@@ -187,11 +187,11 @@ const ProductDetails = () => {
             {/* Related Products */}
             <div className="mt-16">
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Related Products</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Sản phẩm liên quan</h2>
                     <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mx-auto"></div>
                     {relatedProducts.filter(p => p.inStock).length > 0 && (
                         <p className="text-gray-600 mt-3">
-                            Showing {displayedProducts.length} of {relatedProducts.filter(p => p.inStock).length} products
+                            Hiển thị {displayedProducts.length} / {relatedProducts.filter(p => p.inStock).length} sản phẩm
                         </p>
                     )}
                 </div>
@@ -210,25 +210,25 @@ const ProductDetails = () => {
                                     onClick={handleLoadMore}
                                     className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold px-10 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                                 >
-                                    Load More ({relatedProducts.filter(p => p.inStock).length - displayCount} remaining)
+                                    Xem thêm ({relatedProducts.filter(p => p.inStock).length - displayCount} sản phẩm)
                                 </button>
                             )}
                             <button 
                                 onClick={() => { navigate('/products'); window.scrollTo(0, 0) }}
                                 className="bg-white hover:bg-green-50 text-green-600 font-semibold px-10 py-3 rounded-lg border-2 border-green-500 hover:border-green-600 transition-all duration-300 shadow-sm hover:shadow-md"
                             >
-                                View All Products
+                                Xem tất cả sản phẩm
                             </button>
                         </div>
                     </>
                 ) : (
                     <div className="text-center py-12">
-                        <p className="text-gray-500 mb-4">No related products found</p>
+                        <p className="text-gray-500 mb-4">Không tìm thấy sản phẩm liên quan</p>
                         <button 
                             onClick={() => { navigate('/products'); window.scrollTo(0, 0) }}
                             className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold px-10 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
                         >
-                            Browse All Products
+                            Xem tất cả sản phẩm
                         </button>
                     </div>
                 )}

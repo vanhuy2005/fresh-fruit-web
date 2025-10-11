@@ -7,11 +7,11 @@ const Bottombanner = () => {
       {/* Features Section */}
       <div className='text-center mb-12'>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight'>
-          Why We Are 
-          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> The Best?</span>
+          Tại Sao Chúng Tôi Là  
+          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> Tốt Nhất?</span>
         </h2>
         <p className='text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed mb-8'>
-          Discover what makes us the preferred choice for fresh, quality products
+          Lý do tại sao chúng tôi là lựa chọn hàng đầu cho các sản phẩm tươi ngon, chất lượng
         </p>
         
         {/* Features Grid */}

@@ -171,75 +171,75 @@ export const assets = {
 
 export const categories = [
   {
-    text: "Vietnamese Fruits",
+    text: "Trái cây Việt Nam",
     path: "Vietnamese-Fruits",
     image: categories_vietnamese_fruit,
     bgColor: "#FEF4E6",
     icon: "🇻🇳",
-    description: "Fresh local fruits: Mango, Dragon Fruit, Pomelo, Milk Fruit...",
+    description: "Đặc sản trái cây tươi: Xoài, Thanh long, Bưởi, Vú sữa...",
     scale: 0.85 // Thu nhỏ hình 1
   },
   {
-    text: "Imported Fruits",
+    text: "Trái cây nhập khẩu",
     path: "Imported-Fruits",
     image: categories_imported_fruit,
     bgColor: "#E8F4FD",
     icon: "🌏",
-    description: "Premium imports: US Apples, Australian Grapes, Chilean Cherry...",
+    description: "Nhập khẩu cao cấp: Táo Mỹ, Nho Úc, Cherry Chile...",
     scale: 1.2 // Giữ nguyên
   },
   {
-    text: "Dried & Processed",
+    text: "Trái cây sấy & chế biến",
     path: "Processed-Fruits",
     image: categories_processed_fruit,
     bgColor: "#FFF0F5",
     icon: "🥭",
-    description: "Dried fruits, jams, canned juices & healthy snacks",
+    description: "Trái cây sấy, mứt, nước ép đóng chai, snack dinh dưỡng",
     scale: 0.9 // Giữ nguyên
   },
   {
-    text: "Gift Baskets",
+    text: "Giỏ quà tặng",
     path: "Gift-Baskets",
     image: categories_gifted_basket,
     bgColor: "#F0F8F5",
     icon: "🎁",
-    description: "Elegant gift sets perfect for any special occasion",
+    description: "Giỏ quà sang trọng, ý nghĩa cho mọi dịp đặc biệt",
     scale: 1.1 // Phóng to Gift Basket
   },
   {
-    text: "Fresh Juices",
+    text: "Nước ép tươi",
     path: "Fresh-Juices",
     image: categories_fresh_juices,
     bgColor: "#FFF8E8",
     icon: "🧃",
-    description: "Fresh juices, smoothies & healthy fruit beverages",
+    description: "Nước ép, sinh tố, đồ uống trái cây tươi bổ dưỡng",
     scale: 0.85 // Thu nhỏ hình 4
   },
 ];
 
 export const footerLinks = [
   {
-    title: "Quick Links",
+    title: "Liên kết nhanh",
     links: [
-      { text: "Home", url: "#" },
-      { text: "Best Sellers", url: "#" },
-      { text: "Offers & Deals", url: "#" },
-      { text: "Contact Us", url: "#" },
-      { text: "FAQs", url: "#" },
+      { text: "Trang chủ", url: "#" },
+      { text: "Bán chạy", url: "#" },
+      { text: "Ưu đãi & Khuyến mãi", url: "#" },
+      { text: "Liên hệ", url: "#" },
+      { text: "Câu hỏi thường gặp", url: "#" },
     ],
   },
   {
-    title: "Need help?",
+    title: "Cần hỗ trợ?",
     links: [
-      { text: "Delivery Information", url: "#" },
-      { text: "Return & Refund Policy", url: "#" },
-      { text: "Payment Methods", url: "#" },
-      { text: "Track your Order", url: "#" },
-      { text: "Contact Us", url: "#" },
+      { text: "Thông tin giao hàng", url: "#" },
+      { text: "Chính sách đổi trả & hoàn tiền", url: "#" },
+      { text: "Phương thức thanh toán", url: "#" },
+      { text: "Theo dõi đơn hàng", url: "#" },
+      { text: "Liên hệ", url: "#" },
     ],
   },
   {
-    title: "Follow Us",
+    title: "Kết nối với chúng tôi",
     links: [
       { text: "Instagram", url: "#" },
       { text: "Twitter", url: "#" },
@@ -252,55 +252,54 @@ export const footerLinks = [
 export const features = [
   {
     icon: delivery_truck_icon,
-    title: "Fastest Delivery",
-    description: "Groceries delivered in under 30 minutes.",
+    title: "Giao hàng siêu tốc",
+    description: "Giao tận nơi chỉ trong 30 phút.",
   },
   {
     icon: leaf_icon,
-    title: "Freshness Guaranteed",
-    description: "Fresh produce straight from the source.",
+    title: "Cam kết tươi ngon",
+    description: "Nông sản tươi mới, nguồn gốc rõ ràng.",
   },
   {
     icon: coin_icon,
-    title: "Affordable Prices",
-    description: "Quality groceries at unbeatable prices.",
+    title: "Giá cả hợp lý",
+    description: "Chất lượng cao, giá tốt nhất thị trường.",
   },
   {
     icon: trust_icon,
-    title: "Trusted by Thousands",
-    description: "Loved by 10,000+ happy customers.",
+    title: "Được tin chọn",
+    description: "Hơn 10.000 khách hàng hài lòng.",
   },
 ];
 
 export const dummyProducts = [
-  // Vegetables
+  // Trái cây nhập khẩu
   {
     _id: "gd46g23h",
-    name: "Raspberry 1 kg",
-    category: "Fruits",
+    name: "Phúc bồn tử 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 125000,
     offerPrice: 115000,
     image: [traicay_phucbontu],
     description: [
-      "Fresh and organic",
+      "Phúc bồn tử tươi, giàu dinh dưỡng, nhập khẩu cao cấp. Thích hợp ăn vặt, làm bánh hoặc trang trí món tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
     inStock: true,
   },
+  // Trái cây Việt Nam
   {
     _id: "gd47g34h",
-    name: "Passion fruit 1 kg",
-    category: "Fruits",
+    name: "Chanh dây 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 40000,
     offerPrice: 35000,
     image: [traicay_chanhday],
     description: [
-      "Juicy and ripe",
-      "Rich in Vitamin C",
-      "Farm fresh quality",
+      "Chanh dây chín mọng, vị chua ngọt tự nhiên. Giàu vitamin C, tốt cho sức khỏe. Thích hợp làm nước ép, sinh tố."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -308,15 +307,14 @@ export const dummyProducts = [
   },
   {
     _id: "gd48g45h",
-    name: "Jack fruit 1 kg",
-    category: "Fruits",
+    name: "Mít 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 40000,
     offerPrice: 35000,
     image: [traicay_traimit],
     description: [
-      "Rich in fiber",  
-      "High in vitamins",
+      "Mít chín thơm ngọt, nhiều chất xơ, giàu vitamin, tốt cho tiêu hóa."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -324,15 +322,15 @@ export const dummyProducts = [
   },
   {
     _id: "gd49g56h",
-    name: "Plum 1 kg",
-    category: "Fruits",
+    name: "Mận Úc 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 42000,
     offerPrice: 38000,
     image: [traicay_plum],
     description: [
-      "Sweet and tangy",
-      "Rich in antioxidants",
+      "Mận Úc tươi, thơm ngọt, mọng nước.",
+      "Giàu chất chống oxy hóa, tốt cho sức khỏe."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -340,15 +338,14 @@ export const dummyProducts = [
   },
   {
     _id: "gd50g67h",
-    name: "Stawberry 1 kg",
-    category: "Fruits",
+    name: "Dâu tây 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 80000,
     offerPrice: 75000,
     image: [traicaytrongnuoc_dautay],
     description: [
-      "Fresh and organic",
-      "Perfect for desserts and smoothies",
+      "Dâu tây tươi, hữu cơ, thích hợp cho món tráng miệng và sinh tố."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -358,18 +355,18 @@ export const dummyProducts = [
   // Fruits
   {
     _id: "ek51j12k",
-    name: "Apple 1 kg",
-    category: "Fruits",
+    name: "Táo Mỹ 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 120000,
     offerPrice: 110000,
     image: [apple_image],
     description: [
-      "Crisp and juicy",
-      "Rich in fiber",
-      "Boosts immunity",
-      "Perfect for snacking and desserts",
-      "Organic and farm fresh",
+      "Giòn ngọt mọng nước",
+      "Giàu chất xơ, tốt cho sức khỏe",
+      "Tăng cường đề kháng",
+      "Ăn vặt hoặc tráng miệng đều ngon",
+      "Sạch, nhập khẩu chính ngạch",
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -377,16 +374,16 @@ export const dummyProducts = [
   },
   {
     _id: "ek52j23k",
-    name: "Orange 1 kg",
-    category: "Fruits",
+    name: "Cam vàng 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 80000,
     offerPrice: 75000,
     image: [orange],
     description: [
-      "Juicy and sweet",
-      "Rich in Vitamin C",
-      "Perfect for juices and salads",
+      "Cam mọng nước, vị ngọt thanh",
+      "Giàu vitamin C, tăng sức đề kháng",
+      "Thích hợp ép nước, ăn trực tiếp hoặc làm salad",
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -394,16 +391,16 @@ export const dummyProducts = [
   },
   {
     _id: "ek53j34k",
-    name: "Banana 1 kg",
-    category: "Fruits",
+    name: "Chuối tiêu 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 50000,
     offerPrice: 45000,
     image: [banana_image_1],
     description: [
-      "Sweet and ripe",
-      "High in potassium",
-      "Great for smoothies and snacking",
+      "Chuối chín tự nhiên, vị ngọt mềm",
+      "Giàu kali, tốt cho tim mạch",
+      "Ăn trực tiếp, làm sinh tố hoặc bánh đều ngon",
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -411,17 +408,16 @@ export const dummyProducts = [
   },
   {
     _id: "ek54j45k",
-    name: "Mango 1 kg",
-    category: "Fruits",
+    name: "Xoài cát 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
-
     price: 60000,
     offerPrice: 55000,
     image: [mango_image_1],
     description: [
-      "Sweet and flavorful",
-      "Perfect for smoothies and desserts",
-      "Rich in Vitamin A",
+      "Xoài chín vàng, ngọt thơm đặc trưng",
+      "Thích hợp làm sinh tố, ăn trực tiếp hoặc tráng miệng",
+      "Giàu vitamin A, tốt cho mắt",
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -429,16 +425,16 @@ export const dummyProducts = [
   },
   {
     _id: "ek55j56k",
-    name: "Grapes 500g",
-    category: "Fruits",
+    name: "Nho đen không hạt 500g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 70000,
     offerPrice: 65000,
     image: [grapes_image_1],
     description: [
-      "Fresh and juicy",
-      "Rich in antioxidants",
-      "Perfect for snacking and fruit salads",
+      "Nho tươi mọng nước, không hạt",
+      "Giàu chất chống oxy hóa, tốt cho sức khỏe",
+      "Ăn vặt hoặc làm salad trái cây",
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -448,15 +444,15 @@ export const dummyProducts = [
   // Dairy
   {
     _id: "ek56j67k",
-    name: "Lychee",
-    category: "Fruits",
+    name: "Vải thiều 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 60000,
     offerPrice: 55000,
     image: [trai_vai],
     description: [
-      "Pure and fresh",
-      "Trusted brand quality",
+      "Vải thiều ngọt thơm, mọng nước.",
+      "Đảm bảo chất lượng, an toàn vệ sinh."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -464,16 +460,15 @@ export const dummyProducts = [
   },
   {
     _id: "ek57j78k",
-    name: "Watermelon 1 kg",
-    category: "Fruits",
+    name: "Dưa hấu 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 40000,
     offerPrice: 35000,
     image: [trai_dua_hau],
     description: [
-      "Soft and fresh",
-      "Rich in vitamins",
-      "Perfect for summer refreshment",
+      "Dưa hấu mềm, tươi, giàu vitamin.",
+      "Hoàn hảo cho giải khát mùa hè."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -481,16 +476,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek58j89k",
-    name: "USA Cherry 100g",
-    category: "Fruits",
+    name: "Cherry Mỹ 100g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 90000,
     offerPrice: 85000,
     image: [traicaynhapkhau_cherryMy],
     description: [
-      "Farm fresh",
-      "Sweet and tangy",
-      "Perfect for snacking and desserts",
+      "Cherry Mỹ tươi, ngọt thanh, thích hợp ăn vặt và tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -498,16 +491,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek59j90k",
-    name: "Blueberry 100g",
-    category: "Fruits",
+    name: "Việt quất 100g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 80000,
     offerPrice: 75000,
     image: [traicaynhapkhau_vietquoc],
     description: [
-      "Soft and fresh",
-      "Rich in vitamins",
-      "Perfect for summer refreshment",
+      "Việt quất tươi, giàu vitamin, thích hợp giải khát mùa hè."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -515,16 +506,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek60j01k",
-    name: "Durian 1 kg",
-    category: "Fruits",
+    name: "Sầu riêng 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 95000,
     offerPrice: 90000,
     image: [traicaytrongnuoc_saurieng],
     description: [
-      "Soft and fresh",
-      "Rich in vitamins",
-      "Perfect for summer refreshment",
+      "Sầu riêng tươi, giàu vitamin, thơm ngon đặc trưng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -533,18 +522,14 @@ export const dummyProducts = [
 
   {
     _id: "ek61j12k",
-    name: "Guava 1 kg",
-    category: "Fruits",
+    name: "Ổi 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 40000,
     offerPrice: 35000,
     image: [traicaytrongnuoc_oi],
     description: [
-      "Fresh and juicy",
-      "Rich in fiber",
-      "Boosts immunity",
-      "Perfect for snacking and desserts",
-      "Organic and farm fresh",
+      "Ổi tươi mọng nước, giàu chất xơ, tăng sức đề kháng. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -552,18 +537,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek62j23k",
-    name: "Pear 1 kg",
-    category: "Fruits",
+    name: "Lê 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 50000,
     offerPrice: 45000,
     image: [trai_le],
     description: [
-      "Crisp and juicy",
-      "Rich in fiber",
-      "Boosts immunity",
-      "Perfect for snacking and desserts",
-      "Organic and farm fresh",
+      "Lê giòn ngọt, giàu chất xơ, tăng sức đề kháng. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -571,16 +552,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek63j34k",
-    name: "Custard Apple 1 kg",
-    category: "Fruits",
+    name: "Mãng cầu 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
-    price: 79,
-    offerPrice: 74,
+    price: 79000,
+    offerPrice: 74000,
     image: [trai_na],
     description: [
-      "Sweet and creamy",
-      "Rich in antioxidants",
-      "Perfect for desserts and smoothies",
+      "Mãng cầu ngọt, mềm, giàu chất chống oxy hóa. Thích hợp làm sinh tố, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -588,16 +567,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek64j45k",
-    name: "Papaya 1 kg",
-    category: "Fruits",
+    name: "Đu đủ 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 40000,
     offerPrice: 36000,
     image: [trai_du_du],
     description: [
-      "Sweet and rich in fiber",
-      "Aids digestion",
-      "Perfect for smoothies and salads",
+      "Đu đủ ngọt, giàu chất xơ, hỗ trợ tiêu hóa. Thích hợp làm sinh tố, salad."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -605,16 +582,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek65j56k",
-    name: "Longan 1kg",
-    category: "Fruits",
+    name: "Nhãn 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 45000,
     offerPrice: 40000,
     image: [trai_nhan],
     description: [
-      "Refreshing and sweet",
-      "Perfect for snacking",
-      "Best served chilled",
+      "Nhãn tươi mát, ngọt thanh. Thích hợp ăn vặt, để lạnh ngon hơn."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -624,16 +599,14 @@ export const dummyProducts = [
   // Grains
   {
     _id: "ek66j67k",
-    name: "Dragon fruit 1 kg",
-    category: "Fruits",
+    name: "Thanh long 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 60000,
     offerPrice: 55000,
     image: [traicay_thanhlong],
     description: [
-      "Exotic and vibrant",
-      "Rich in antioxidants",
-      "Perfect for smoothies and fruit bowls",
+      "Thanh long lạ mắt, giàu chất chống oxy hóa. Thích hợp làm sinh tố, salad trái cây."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -641,16 +614,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek67j78k",
-    name: "Cantaloupe 1 kg",
-    category: "Fruits",
+    name: "Dưa lưới 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 90000,
     offerPrice: 85000,
     image: [trai_dua_vang],
     description: [
-      "Sweet and juicy",
-      "Rich in vitamins",
-      "Perfect for snacking and desserts",
+      "Dưa lưới ngọt, giàu vitamin. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -658,16 +629,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek68j89k",
-    name: "Peach 1kg",
-    category: "Fruits",
+    name: "Đào 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 60000,
     offerPrice: 55000,
     image: [traicay_peach],
     description: [
-      "Juicy and sweet",
-      "Rich in vitamins",
-      "Perfect for snacking and desserts",
+      "Đào mọng nước, ngọt. Giàu vitamin. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -675,16 +644,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek69j90k",
-    name: "Pineapple 1 kg",
-    category: "Fruits",
+    name: "Dứa nhập khẩu 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 30000,
     offerPrice: 25000,
     image: [trai_thom],
     description: [
-      "Tropical and tangy", 
-      "Rich in vitamins",
-      "Perfect for snacking and desserts",
+      "Dứa nhiệt đới, chua ngọt. Giàu vitamin. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -692,16 +659,14 @@ export const dummyProducts = [
   },
   {
     _id: "ek70j01k",
-    name: "Mango Steen 1 kg",
-    category: "Fruits",
+    name: "Măng cục 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 70000,
     offerPrice: 65000,
     image: [traicaytrongnuoc_mangcut],
     description: [
-      "Exotic and sweet",
-      "Rich in antioxidants",
-      "Perfect for smoothies and fruit bowls",
+      "Mít tố nữ lạ mắt, ngọt. Giàu chất chống oxy hóa. Thích hợp làm sinh tố, salad trái cây."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -711,16 +676,14 @@ export const dummyProducts = [
   // Bakery
   {
     _id: "bk01a24z",
-    name: "Gold kiwi 1 kg",
-    category: "Fruits",
+    name: "Kiwi vàng 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 80000,
     offerPrice: 75000,
     image: [traicaytrongnuoc_kiwivang],
     description: [
-      "Soft and healthy",
-      "Made from whole wheat",
-      "Ideal for breakfast and sandwiches",
+      "Kiwi vàng mềm, giàu vitamin C. Thích hợp ăn trực tiếp hoặc làm sinh tố."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -728,16 +691,14 @@ export const dummyProducts = [
   },
   {
     _id: "bk02b30y",
-    name: "Green coconut 1 fruit",
-    category: "Fruits",
+    name: "Dừa xiêm non 1 trái",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 30000,
     offerPrice: 25000,
     image: [traicaytrongnuoc_duaxiemnon],
     description: [
-      "Refreshing and hydrating",
-      "Rich in electrolytes",
-      "Perfect for hot summer days",
+      "Dừa xiêm non tươi mát, giàu điện giải. Hoàn hảo cho những ngày nóng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -745,16 +706,14 @@ export const dummyProducts = [
   },
   {
     _id: "bk03c31x",
-    name: "Grapefruit 1 kg",
-    category: "Fruits",
+    name: "Bưởi da xanh 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 50000,
     offerPrice: 45000,
     image: [traicaytrongnuoc_buoidaxanh],
     description: [
-      "Citrusy and tangy",
-      "Rich in Vitamin C",
-      "Perfect for juices and salads",
+      "Bưởi chua ngọt, giàu vitamin C. Thích hợp ép nước, salad."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -762,16 +721,14 @@ export const dummyProducts = [
   },
   {
     _id: "bk04d32w",
-    name: "Avocado 1 kg",
-    category: "fruits",
+    name: "Bơ 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 70000,
     offerPrice: 65000,
     image: [traicaytrongnuoc_avocado],
     description: [
-      "Creamy and nutritious",
-      "Rich in healthy fats",
-      "Perfect for salads and smoothies",
+      "Bơ kem, giàu chất béo lành mạnh. Thích hợp salad, sinh tố."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -779,16 +736,14 @@ export const dummyProducts = [
   },
   {
     _id: "bk05e33v",
-    name: "Rambutan 1 kg",
-    category: "Fruits",
+    name: "Chôm chôm 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 50000,
     offerPrice: 45000,
     image: [traicay_chomchom],
     description: [
-      "Sweet and juicy",
-      "Rich in vitamins",
-      "Perfect for snacking and desserts",
+      "Chôm chôm ngọt, giàu vitamin. Thích hợp ăn vặt, tráng miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -796,15 +751,14 @@ export const dummyProducts = [
   },
   {
     _id: "in01f25u",
-    name: "Indian Pomegranate 1 kg",
-    category: "Fruits",
+    name: "Lựu Ấn Độ 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
-
     price: 55000,
     offerPrice: 50000,
     image: [traicaynhapkhau_luuAnDo],
     description: [
-      "Rich in antioxidants", 
+      "Giàu chất chống oxy hóa."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -812,16 +766,14 @@ export const dummyProducts = [
   },
   {
     _id: "in02g26t",
-    name: "Economic fruit basket 1 basket",
-    category: "Fruits",
+    name: "Giỏ trái cây tiết kiệm 1 giỏ",
+    category: "Giỏ quà tặng",
     categoryType: "Gift-Baskets",
     price: 200000,
     offerPrice: 180000,
     image: [gio_trai_cay_tiet_kiem],
     description: [
-      "A variety of fresh fruits",
-      "Perfect for gifting or personal use",
-      "Economical and healthy choice",
+      "Giỏ trái cây tươi đa dạng. Hoàn hảo tặng quà hoặc dùng cá nhân. Tiết kiệm, khỏe mạnh."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -829,16 +781,14 @@ export const dummyProducts = [
   },
   {
     _id: "in03h27s",
-    name: "Picnic fruit basket 1 basket",
-    category: "Fruits",
+    name: "Giỏ trái cây dã ngoại 1 giỏ",
+    category: "Giỏ quà tặng",
     categoryType: "Gift-Baskets",
     price: 250000,
     offerPrice: 230000,
     image: [gio_trai_cay_picnic],
     description: [
-      "Convenient for on-the-go",
-      "Healthy and nutritious",
-      "Variety of flavors",
+      "Tiện lợi mang theo. Khỏe mạnh, giàu dinh dưỡng. Đa dạng hương vị."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -846,16 +796,14 @@ export const dummyProducts = [
   },
   {
     _id: "in04i28r",
-    name: " Medium fruit basket 1 basket",
-    category: "fruits",
+    name: "Giỏ trái cây trung bình 1 giỏ",
+    category: "Giỏ quà tặng",
     categoryType: "Gift-Baskets",
     price: 400000,
     offerPrice: 360000,
     image: [gio_trai_cay_hoi_to],
     description: [
-      "Large assortment of fresh fruits",
-      "Perfect for families or gatherings",
-      "Healthy and delicious",
+      "Đa dạng trái cây tươi lớn. Hoàn hảo cho gia đình hoặc tụ tập. Khỏe mạnh, ngon miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -863,16 +811,14 @@ export const dummyProducts = [
   },
   {
     _id: "in05j29q",
-    name: "Present fruit basket 1 basket",
-    category: "fruits",
+    name: "Giỏ quà trái cây 1 giỏ",
+    category: "Giỏ quà tặng",
     categoryType: "Gift-Baskets",
     price: 380000,
     offerPrice: 350000,
     image: [gioqua],
     description: [
-      "Beautifully arranged fresh fruits",
-      "Ideal for gifting",
-      "Healthy and tasty",
+      "Trái cây tươi sắp xếp đẹp mắt. Lý tưởng tặng quà. Khỏe mạnh, ngon miệng."
     ],
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -880,16 +826,14 @@ export const dummyProducts = [
   },
   {
       _id: "in05j30q",
-      name: "Detox water 1 bottle",
-      category: "Drinks",
+      name: "Nước detox 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 50000,
       offerPrice: 45000,
       image: [nuoc_detox],
       description: [
-        "Infused with fresh fruits",
-        "Hydrating and refreshing",
-        "Perfect for detox and weight loss",
+        "Ngâm trái cây tươi. Cung cấp nước, làm mới. Hoàn hảo detox, giảm cân."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -897,16 +841,14 @@ export const dummyProducts = [
     },
            {
       _id: "in05j31q",
-      name: "Orange juice 1 bottle",
-      category: "Drinks",
+      name: "Nước cam ép 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 30000,
       offerPrice: 25000,
       image: [nuoc_cam],
       description: [
-        "Freshly squeezed orange juice",
-        "Rich in Vitamin C",
-        "No added sugar",
+        "Nước cam ép tươi, giàu vitamin C. Không đường thêm."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -914,16 +856,14 @@ export const dummyProducts = [
     },
       {
       _id: "in05j31l",
-      name: "Watermelon juice 1 bottle",
-      category: "Drinks",
+      name: "Nước dưa hấu ép 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 30000,
       offerPrice: 25000,
       image: [watermelon_juice],
       description: [
-        "Freshly squeezed watermelon juice",
-        "Hydrating and refreshing",
-        "No added sugar",
+        "Nước dưa hấu ép tươi, cung cấp nước, làm mới. Không đường thêm."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -931,16 +871,14 @@ export const dummyProducts = [
     },
        {
       _id: "in05j31w",
-      name: "Apple juice 1 bottle",
-      category: "Drinks",
+      name: "Nước táo ép 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 35000,
       offerPrice: 30000,
       image: [apple_juice],
       description: [
-        "Freshly squeezed apple juice",
-        "Rich in vitamins",
-        "No added sugar",
+        "Nước táo ép tươi, giàu vitamin. Không đường thêm."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -948,16 +886,14 @@ export const dummyProducts = [
     },
     {
       _id: "in05j31y",
-      name: "Pineapple juice 1 bottle",
-      category: "Drinks",
+      name: "Nước dứa ép 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 28000,
       offerPrice: 24000,
       image: [pineapple_juice],
       description: [
-        "Freshly squeezed pineapple juice",
-        "Rich in vitamins",
-        "No added sugar",
+        "Nước dứa ép tươi, giàu vitamin. Không đường thêm."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -965,16 +901,14 @@ export const dummyProducts = [
     },
         {
       _id: "in05j32q",
-      name: "Green detox 1 bottle",
-      category: "Drinks",
+      name: "Detox xanh 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 35000,
       offerPrice: 30000,
       image: [green_detox],
       description: [
-        "Infused with fresh greens",
-        "Hydrating and refreshing",
-        "Perfect for detox and weight loss",
+        "Ngâm rau xanh tươi, cung cấp nước, làm mới. Hoàn hảo detox, giảm cân."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -982,16 +916,14 @@ export const dummyProducts = [
     },
        {
       _id: "in05j32b",
-      name: "Strawberry smoothie 1 bottle",
-      category: "Drinks",
+      name: "Sinh tố dâu 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 35000,
       offerPrice: 30000,
       image: [smoothie_dau],
       description: [
-        "Infused with fresh strawberries",
-        "Creamy and delicious",
-        "Perfect for a quick snack",
+        "Ngâm dâu tây tươi, kem ngon. Hoàn hảo ăn vặt nhanh."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -999,16 +931,14 @@ export const dummyProducts = [
     },
         {
       _id: "in05j33q",
-      name: "Fresh Almond milk 1 bottle",
-      category: "Drinks",
+      name: "Sữa hạnh nhân tươi 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 40000,
       offerPrice: 35000,
       image: [suahat],
       description: [
-        "Made from organic almonds",
-        "Rich in calcium and Vitamin D",
-        "Dairy-free and vegan-friendly",
+        "Làm từ hạnh nhân hữu cơ, giàu canxi và vitamin D. Không sữa, thân thiện với người ăn chay."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -1016,16 +946,14 @@ export const dummyProducts = [
     },
          {
       _id: "in05j33m",
-      name: "Smoothie avocado 1 bottle",
-      category: "Drinks",
+      name: "Sinh tố bơ 1 chai",
+      category: "Nước ép tươi",
       categoryType: "Fresh-Juices",
       price: 45000,
       offerPrice: 40000,
       image: [smoothie_avocado],
       description: [
-        "Made from fresh avocados",
-        "Creamy and delicious",
-        "Perfect for a quick snack",
+        "Làm từ bơ tươi, kem ngon. Hoàn hảo ăn vặt nhanh."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -1033,16 +961,14 @@ export const dummyProducts = [
     },
         {
       _id: "in05j34q",
-      name: "Strawberry jam 1 box",
-      category: "Fruits",
+      name: "Mứt dâu 1 hộp",
+      category: "Trái cây sấy & chế biến",
       categoryType: "Processed-Fruits",
       price: 50000,
       offerPrice: 45000,
       image: [mutdau],
       description: [
-        "Made from fresh strawberries",
-        "No added preservatives",
-        "Perfect for spreading on toast or using in desserts",
+        "Làm từ dâu tây tươi, không chất bảo quản. Hoàn hảo phết bánh mì hoặc dùng trong món tráng miệng."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -1051,16 +977,14 @@ export const dummyProducts = [
 
  {
       _id: "in05j34c",
-      name: "Coconut jam 100g",
-      category: "Fruits",
+      name: "Mứt dừa 100g",
+      category: "Trái cây sấy & chế biến",
       categoryType: "Processed-Fruits",
       price: 35000,
       offerPrice: 30000,
       image: [coconut_jam],
       description: [
-        "Made from fresh coconuts",
-        "No added preservatives",
-        "Perfect for spreading on toast or using in desserts",
+        "Làm từ dừa tươi, không chất bảo quản. Hoàn hảo phết bánh mì hoặc dùng trong món tráng miệng."
       ],
       createdAt: "2025-03-25T07:17:46.018Z",
       updatedAt: "2025-03-25T07:18:13.103Z",
@@ -1070,16 +994,14 @@ export const dummyProducts = [
   // ===== NEW IMPORTED FRUITS =====
   {
     _id: "imp001",
-    name: "Fresh Currant 250g",
-    category: "Fruits",
+    name: "Nho currant tươi 250g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 85000,
     offerPrice: 75000,
     image: [imported_fruits_Currant],
     description: [
-      "Sweet and tangy imported currants",
-      "Rich in vitamin C and antioxidants",
-      "Perfect for snacking or baking",
+      "Nho currant nhập khẩu chua ngọt, giàu vitamin C và chất chống oxy hóa. Hoàn hảo ăn vặt hoặc làm bánh."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1087,16 +1009,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp002",
-    name: "Fresh Fig 200g",
-    category: "Fruits",
+    name: "Sung tươi 200g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 95000,
     offerPrice: 85000,
     image: [imported_fruits_fig],
     description: [
-      "Delicious imported figs",
-      "Rich in fiber and minerals",
-      "Great for desserts or eaten fresh",
+      "Sung nhập khẩu ngon miệng, giàu chất xơ và khoáng chất. Tốt cho món tráng miệng hoặc ăn tươi."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1104,16 +1024,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp003",
-    name: "Nectarine 500g",
-    category: "Fruits",
+    name: "Quả xuân đào 500g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 120000,
     offerPrice: 110000,
     image: [imported_fruits_Nectarine],
     description: [
-      "Sweet and juicy nectarines",
-      "High in vitamins A and C",
-      "Perfect for fresh eating or smoothies",
+      "Xuân đào ngọt mọng nước, giàu vitamin A và C. Hoàn hảo ăn tươi hoặc làm sinh tố."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1121,16 +1039,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp004",
-    name: "Langsat 300g",
-    category: "Fruits",
+    name: "Bòn bon 300g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 65000,
     offerPrice: 58000,
     image: [imported_Langsat],
     description: [
-      "Exotic tropical langsat fruit",
-      "Sweet and slightly tart flavor",
-      "Rich in vitamins and minerals",
+      "Bòn bon nhiệt đới lạ mắt, ngọt và hơi chua. Giàu vitamin và khoáng chất."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1138,16 +1054,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp005",
-    name: "US Navel Orange 1kg",
-    category: "Fruits",
+    name: "Cam navel Mỹ 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 98000,
     offerPrice: 88000,
     image: [traicaynhapkhau_camNavelMy],
     description: [
-      "Premium US navel oranges",
-      "Seedless and easy to peel",
-      "Sweet and refreshing taste",
+      "Cam navel Mỹ cao cấp, không hạt, dễ bóc. Ngọt và làm mới."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1155,16 +1069,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp006",
-    name: "Australian Seedless Black Grapes 500g",
-    category: "Fruits",
+    name: "Nho đen không hạt Úc 500g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 135000,
     offerPrice: 125000,
     image: [traicaynhapkhau_nhodenkhonghatcuaUc],
     description: [
-      "Premium seedless black grapes from Australia",
-      "Sweet and crunchy",
-      "Rich in antioxidants",
+      "Nho đen không hạt Úc cao cấp, ngọt và giòn. Giàu chất chống oxy hóa."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1172,16 +1084,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp007",
-    name: "Envy Apple 1kg",
-    category: "Fruits",
+    name: "Táo Envy 1kg",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 145000,
     offerPrice: 135000,
     image: [traicaynhapkhau_taoEnvy],
     description: [
-      "Premium Envy apples",
-      "Super sweet and crispy",
-      "Perfect for eating fresh",
+      "Táo Envy cao cấp, siêu ngọt và giòn. Hoàn hảo ăn tươi."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1189,16 +1099,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp008",
-    name: "Imported Dragon Fruit 2pcs",
-    category: "Fruits",
+    name: "Thanh long nhập khẩu 2 trái",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 78000,
     offerPrice: 70000,
     image: [traicaynhapkhau_thanhlong],
     description: [
-      "Premium imported dragon fruit",
-      "Sweet and refreshing",
-      "High in fiber and vitamin C",
+      "Thanh long nhập khẩu cao cấp, ngọt và làm mới. Giàu chất xơ và vitamin C."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1206,16 +1114,14 @@ export const dummyProducts = [
   },
   {
     _id: "imp009",
-    name: "Imported Walnut 200g",
-    category: "Fruits",
+    name: "Hạt óc chó nhập khẩu 200g",
+    category: "Trái cây nhập khẩu",
     categoryType: "Imported-Fruits",
     price: 125000,
     offerPrice: 115000,
     image: [traicaynhaukhau_hatocho],
     description: [
-      "Premium imported walnuts",
-      "Rich in omega-3 fatty acids",
-      "Perfect for snacking or baking",
+      "Hạt óc chó nhập khẩu cao cấp, giàu axit béo omega-3. Hoàn hảo ăn vặt hoặc làm bánh."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1225,16 +1131,14 @@ export const dummyProducts = [
   // ===== NEW FRESH JUICES =====
   {
     _id: "juice001",
-    name: "Coconut Milk 500ml",
-    category: "Fruits",
+    name: "Sữa dừa 500ml",
+    category: "Nước ép tươi",
     categoryType: "Fresh-Juices",
     price: 45000,
     offerPrice: 40000,
     image: [juices_coconut_milk],
     description: [
-      "Fresh coconut milk",
-      "No added sugar or preservatives",
-      "Rich and creamy texture",
+      "Sữa dừa tươi, không đường thêm, không chất bảo quản. Kết cấu giàu và kem."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1242,16 +1146,14 @@ export const dummyProducts = [
   },
   {
     _id: "juice002",
-    name: "Hibiscus Tea 300ml",
-    category: "Fruits",
+    name: "Trà atiso 300ml",
+    category: "Nước ép tươi",
     categoryType: "Fresh-Juices",
     price: 35000,
     offerPrice: 30000,
     image: [juices_hibiscus_tea],
     description: [
-      "Refreshing hibiscus tea",
-      "Rich in antioxidants",
-      "Natural sweet and tart flavor",
+      "Trà atiso làm mới, giàu chất chống oxy hóa. Hương vị tự nhiên ngọt và chua."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1259,16 +1161,14 @@ export const dummyProducts = [
   },
   {
     _id: "juice003",
-    name: "Lemongrass Tea 300ml",
-    category: "Fruits",
+    name: "Trà sả 300ml",
+    category: "Nước ép tươi",
     categoryType: "Fresh-Juices",
     price: 32000,
     offerPrice: 28000,
     image: [juices_lemongrass_tea],
     description: [
-      "Fresh lemongrass tea",
-      "Natural detox drink",
-      "Refreshing and aromatic",
+      "Trà sả tươi, đồ uống detox tự nhiên. Làm mới và thơm."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1276,16 +1176,14 @@ export const dummyProducts = [
   },
   {
     _id: "juice004",
-    name: "Oat Milk 500ml",
-    category: "Fruits",
+    name: "Sữa yến mạch 500ml",
+    category: "Nước ép tươi",
     categoryType: "Fresh-Juices",
     price: 48000,
     offerPrice: 43000,
     image: [juices_Oat_Milk],
     description: [
-      "Fresh oat milk",
-      "Dairy-free alternative",
-      "Rich in fiber and vitamins",
+      "Sữa yến mạch tươi, thay thế không sữa. Giàu chất xơ và vitamin."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1295,16 +1193,14 @@ export const dummyProducts = [
   // ===== NEW PROCESSED FRUITS =====
   {
     _id: "proc001",
-    name: "Candied Orange Peel 150g",
-    category: "Fruits",
+    name: "Vỏ cam kẹo 150g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 42000,
     offerPrice: 38000,
     image: [proccesed_candie_dorangepeel],
     description: [
-      "Sweet candied orange peel",
-      "Perfect for baking or snacking",
-      "Natural orange flavor",
+      "Vỏ cam kẹo ngọt, hoàn hảo làm bánh hoặc ăn vặt. Hương cam tự nhiên."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1312,16 +1208,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc002",
-    name: "Dried Mango Slices 200g",
-    category: "Fruits",
+    name: "Mít sấy lát 200g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 65000,
     offerPrice: 58000,
     image: [proccesed_Dried_Mango_Slices],
     description: [
-      "Premium dried mango slices",
-      "No added sugar",
-      "Chewy and naturally sweet",
+      "Mít sấy lát cao cấp, không đường thêm. Nhai và tự nhiên ngọt."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1329,16 +1223,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc003",
-    name: "Frozen Berries Mix 300g",
-    category: "Fruits",
+    name: "Hỗn hợp dâu đông lạnh 300g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 88000,
     offerPrice: 80000,
     image: [Proccesed_frozen_berries],
     description: [
-      "Mixed frozen berries",
-      "Perfect for smoothies",
-      "Rich in antioxidants",
+      "Hỗn hợp dâu đông lạnh, hoàn hảo làm sinh tố. Giàu chất chống oxy hóa."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1346,16 +1238,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc004",
-    name: "Frozen Mango Chunks 400g",
-    category: "Fruits",
+    name: "Mít đông lạnh miếng 400g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 72000,
     offerPrice: 65000,
     image: [Proccesed_frozen_mango_chunks],
     description: [
-      "Frozen mango chunks",
-      "Ready to use",
-      "Perfect for desserts and drinks",
+      "Miếng mít đông lạnh, sẵn dùng. Hoàn hảo cho món tráng miệng và đồ uống."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1363,16 +1253,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc005",
-    name: "Fruit Chips Mix 150g",
-    category: "Fruits",
+    name: "Hỗn hợp chips trái cây 150g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 55000,
     offerPrice: 48000,
     image: [Proccesed_Fruit_Chips_Mix],
     description: [
-      "Crispy fruit chips mix",
-      "Healthy snack option",
-      "No artificial flavors",
+      "Chips trái cây giòn, lựa chọn ăn vặt khỏe mạnh. Không hương vị nhân tạo."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1380,16 +1268,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc006",
-    name: "Ginger Jam 120g",
-    category: "Fruits",
+    name: "Mứt gừng 120g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 38000,
     offerPrice: 33000,
     image: [proccesed_ginger_jam],
     description: [
-      "Spicy ginger jam",
-      "Perfect for tea or desserts",
-      "Natural ingredients",
+      "Mứt gừng cay, hoàn hảo cho trà hoặc món tráng miệng. Nguyên liệu tự nhiên."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1397,16 +1283,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc007",
-    name: "Mango Puree 250ml",
-    category: "Fruits",
+    name: "Nước mít ép 250ml",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 52000,
     offerPrice: 47000,
     image: [Proccesed_Mango_Puree],
     description: [
-      "100% mango puree",
-      "Perfect for smoothies and cooking",
-      "No added sugar",
+      "100% nước mít ép, hoàn hảo làm sinh tố và nấu ăn. Không đường thêm."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1414,16 +1298,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc008",
-    name: "Orange Juice Concentrate 300ml",
-    category: "Fruits",
+    name: "Nước cam cô đặc 300ml",
+    category: "Nước ép tươi",
     categoryType: "Fresh-Juices",
     price: 45000,
     offerPrice: 40000,
     image: [proccesed_orange_juice],
     description: [
-      "Pure orange juice concentrate",
-      "Just add water",
-      "Natural vitamin C",
+      "Nước cam cô đặc tinh khiết, chỉ thêm nước. Vitamin C tự nhiên."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1431,16 +1313,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc009",
-    name: "Dried Persimmon 180g",
-    category: "Fruits",
+    name: "Hồng khô 180g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 68000,
     offerPrice: 62000,
     image: [proccesed_persimmon],
     description: [
-      "Premium dried persimmons",
-      "Sweet and chewy",
-      "Traditional Asian delicacy",
+      "Hồng khô cao cấp, ngọt và nhai. Đặc sản châu Á truyền thống."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1448,16 +1328,14 @@ export const dummyProducts = [
   },
   {
     _id: "proc010",
-    name: "Tamarind Jam 120g",
-    category: "Fruits",
+    name: "Mứt me 120g",
+    category: "Trái cây sấy & chế biến",
     categoryType: "Processed-Fruits",
     price: 36000,
     offerPrice: 32000,
     image: [tamarind_jam],
     description: [
-      "Sweet and tangy tamarind jam",
-      "Perfect for spreading or cooking",
-      "Authentic Vietnamese taste",
+      "Mứt me ngọt chua, hoàn hảo phết hoặc nấu ăn. Hương vị Việt Nam chính thống."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1467,16 +1345,14 @@ export const dummyProducts = [
   // ===== NEW VIETNAMESE FRUITS =====
   {
     _id: "viet001",
-    name: "Bread Fruit 1pc",
-    category: "Fruits",
+    name: "Trái mít tố 1 trái",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 35000,
     offerPrice: 30000,
     image: [vietnamese_bread_fruit],
     description: [
-      "Fresh Vietnamese bread fruit",
-      "Unique starchy texture",
-      "Rich in vitamins and minerals",
+      "Trái mít tố Việt Nam tươi, kết cấu tinh bột lạ. Giàu vitamin và khoáng chất."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1484,16 +1360,14 @@ export const dummyProducts = [
   },
   {
     _id: "viet002",
-    name: "Star Fruit 500g",
-    category: "Fruits",
+    name: "Trái khế 500g",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 28000,
     offerPrice: 25000,
     image: [vietnamese_fruits_Star_Fruit],
     description: [
-      "Fresh star fruit (carambola)",
-      "Sweet and tangy flavor",
-      "Beautiful star shape when sliced",
+      "Khế tươi (carambola), vị ngọt chua. Hình ngôi sao khi cắt. Đẹp mắt."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1501,16 +1375,14 @@ export const dummyProducts = [
   },
   {
     _id: "viet003",
-    name: "Star Gooseberry 300g",
-    category: "Fruits",
+    name: "Chanh leo 300g",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 32000,
     offerPrice: 28000,
     image: [vietnamese_Star_Gooseberry],
     description: [
-      "Fresh star gooseberry",
-      "Crunchy and slightly tart",
-      "High in vitamin C",
+      "Chanh leo tươi, giòn và hơi chua. Giàu vitamin C."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1518,16 +1390,14 @@ export const dummyProducts = [
   },
   {
     _id: "viet004",
-    name: "Vietnamese Mango 1kg",
-    category: "Fruits",
+    name: "Xoài Việt Nam 1kg",
+    category: "Trái cây Việt Nam",
     categoryType: "Vietnamese-Fruits",
     price: 55000,
     offerPrice: 48000,
     image: [traicaytrongnuoc_mango],
     description: [
-      "Sweet Vietnamese mangoes",
-      "Juicy and aromatic",
-      "Perfect for eating fresh or making smoothies",
+      "Xoài Việt Nam ngọt, mọng nước, thơm. Hoàn hảo ăn tươi hoặc làm sinh tố."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1537,16 +1407,14 @@ export const dummyProducts = [
   // ===== NEW GIFT BASKET =====
   {
     _id: "gift001",
-    name: "Tết Premium Gift Basket",
-    category: "Fruits",
+    name: "Giỏ quà Tết cao cấp",
+    category: "Giỏ quà tặng",
     categoryType: "Gift-Baskets",
     price: 850000,
     offerPrice: 799000,
     image: [tet_gift_basket],
     description: [
-      "Premium gift basket for Tết celebration",
-      "Contains assorted fresh fruits and delicacies",
-      "Beautifully packaged for gifting",
+      "Giỏ quà cao cấp cho lễ Tết, chứa trái cây tươi và đặc sản. Đóng gói đẹp mắt để tặng quà."
     ],
     createdAt: "2025-10-10T08:00:00.000Z",
     updatedAt: "2025-10-10T08:00:00.000Z",
@@ -1558,15 +1426,15 @@ export const dummyAddress = [
   {
     _id: "67b5b9e54ea97f71bbc196a0",
     userId: "67b5880e4d09769c5ca61644",
-    firstName: "Great",
-    lastName: "Stack",
-    email: "user.greatstack@gmail.com",
-    street: "Street 123",
-    city: "Main City",
-    state: "New State",
-    zipcode: 123456,
-    country: "IN",
-    phone: "1234567890",
+    firstName: "Nguyễn",
+    lastName: "Văn A",
+    email: "khachhang@gmail.com",
+    street: "123 Đường Lê Lợi",
+    city: "TP. Hồ Chí Minh",
+    state: "Hồ Chí Minh",
+    zipcode: 700000,
+    country: "VN",
+    phone: "0901234567",
   },
 ];
 
@@ -1583,8 +1451,8 @@ export const dummyOrders = [
     ],
     amount: 89,
     address: dummyAddress[0],
-    status: "Order Placed",
-    paymentType: "Online",
+    status: "Đã đặt hàng",
+    paymentType: "Thanh toán online",
     isPaid: true,
     createdAt: "2025-03-25T07:17:46.018Z",
     updatedAt: "2025-03-25T07:18:13.103Z",
@@ -1606,8 +1474,8 @@ export const dummyOrders = [
     ],
     amount: 43,
     address: dummyAddress[0],
-    status: "Order Placed",
-    paymentType: "COD",
+    status: "Đã đặt hàng",
+    paymentType: "Thanh toán khi nhận hàng",
     isPaid: false,
     createdAt: "2025-03-25T07:17:13.068Z",
     updatedAt: "2025-03-25T07:17:13.068Z",

@@ -10,12 +10,12 @@ const Categories = () => {
       {/* Section Header */}
       <div className='text-center mb-12'>
         <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4 leading-tight'>
-          Browse Our 
-          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> Categories</span>
+          Phân Loại 
+          <span className='bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent'> Sản Phẩm</span>
         </h2>
         <p className='text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-          Discover fresh, quality products organized by type for your convenience
-        </p>
+          Lựa chọn sản phẩm tươi ngon, chất lượng được tổ chức theo loại để bạn tiện lợi hơn
+        </p>  
       </div>
 
       {/* Categories Grid - 5 items in one row */}

@@ -4,33 +4,33 @@ import { assets } from '../assets/assets'
 const Footer = () => {
     const linkSections = [
         {
-            title: "Quick Links",
+            title: "Liên kết nhanh",
             links: [
-                { name: "Home", href: "/" },
-                { name: "Best Sellers", href: "/bestsellers" },
-                { name: "Categories", href: "/categories" },
-                { name: "Offers & Deals", href: "/offers" },
-                { name: "About Us", href: "/about" }
+                { name: "Trang chủ", href: "/" },
+                { name: "Bán chạy", href: "/bestsellers" },
+                { name: "Danh mục", href: "/categories" },
+                { name: "Ưu đãi & Khuyến mãi", href: "/offers" },
+                { name: "Về chúng tôi", href: "/about" }
             ]
         },
         {
-            title: "Customer Support",
+            title: "Hỗ trợ khách hàng",
             links: [
-                { name: "Delivery Information", href: "/delivery" },
-                { name: "Return & Refund Policy", href: "/returns" },
-                { name: "Payment Methods", href: "/payment" },
-                { name: "Track Your Order", href: "/track" },
-                { name: "Contact Us", href: "/contact" }
+                { name: "Thông tin giao hàng", href: "/delivery" },
+                { name: "Chính sách đổi trả & hoàn tiền", href: "/returns" },
+                { name: "Phương thức thanh toán", href: "/payment" },
+                { name: "Theo dõi đơn hàng", href: "/track" },
+                { name: "Liên hệ", href: "/contact" }
             ]
         },
         {
-            title: "Connect",
+            title: "Kết nối",
             links: [
-                { name: "Newsletter", href: "#newsletter" },
-                { name: "FAQs", href: "/faq" },
+                { name: "Bản tin ưu đãi", href: "#newsletter" },
+                { name: "Câu hỏi thường gặp", href: "/faq" },
                 { name: "Blog", href: "/blog" },
-                { name: "Careers", href: "/careers" },
-                { name: "Press", href: "/press" }
+                { name: "Tuyển dụng", href: "/careers" },
+                { name: "Báo chí", href: "/press" }
             ]
         }
     ];
@@ -91,12 +91,12 @@ const Footer = () => {
                             </span>
                         </div>
                         <p className="text-gray-700 leading-relaxed mb-8 max-w-md text-lg">
-                            We deliver fresh groceries and snacks straight to your door. Trusted by thousands, we aim to make your shopping experience simple and affordable.
+                        Chúng tôi là dịch vụ giao hàng, cửa hàng mang thực phẩm tươi ngon tận cửa nhà bạn. Được hàng ngàn người tin tưởng với định hướng lâu dài là mang đến trải nghiệm mua sắm đơn giản và phải chăng.   
                         </p>
                         
                         {/* Social Links */}
                         <div className="flex items-center gap-4">
-                            <span className="text-gray-700 font-medium">Follow Us:</span>
+                            <span className="text-gray-700 font-medium">Theo dõi chúng tôi tại:</span>
                             <div className="flex items-center gap-3">
                                 {socialLinks.map((social, index) => {
                                     const hoverColors = [
@@ -154,8 +154,8 @@ const Footer = () => {
                 <div className="flex flex-col items-center justify-center gap-4 text-center">
                     <div className="flex flex-col md:flex-row items-center gap-6 text-gray-600">
                         <span className="font-medium">Copyright {new Date().getFullYear()} © FruitHub. All rights reserved.</span>
-                        <a href="/privacy" className="hover:text-green-600 transition-colors font-medium">Privacy Policy</a>
-                        <a href="/terms" className="hover:text-green-600 transition-colors font-medium">Terms of Service</a>
+                        <a href="/privacy" className="hover:text-green-600 transition-colors font-medium">Chính Sách Bảo Mật</a>
+                        <a href="/terms" className="hover:text-green-600 transition-colors font-medium">Điều Khoản Dịch Vụ</a>
                     </div>
                 </div>
             </div>
